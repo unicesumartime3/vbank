@@ -19,10 +19,6 @@ import br.com.rp.domain.BaseEntity;
 @DiscriminatorColumn(name = "tp_usuario", discriminatorType = DiscriminatorType.STRING, length = 15)
 public abstract class Usuario extends BaseEntity implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;

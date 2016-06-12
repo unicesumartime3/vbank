@@ -20,10 +20,6 @@ import br.com.rp.domain.conta.Conta;
 @Table(name = "cliente")
 public class Cliente extends BaseEntity implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
@@ -67,10 +63,6 @@ public class Cliente extends BaseEntity implements Serializable {
 
 	public void setVlRenda(BigDecimal vlRenda) {
 		this.vlRenda = vlRenda;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public Set<Conta> getContas() {
