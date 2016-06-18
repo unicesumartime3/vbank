@@ -17,4 +17,16 @@ public class UsuarioFuncionarioService  {
 	public List<UsuarioFuncionario> getAll(){
 		return usuarioFuncionarioRepository.getAll();
 	}
+	
+	public UsuarioFuncionario save(UsuarioFuncionario cargo){
+		return usuarioFuncionarioRepository.save(cargo);
+	}
+	
+	public UsuarioFuncionario findById(Long id){
+		return usuarioFuncionarioRepository.findById(id);
+	}
+	
+	public void remove(Long id){
+		usuarioFuncionarioRepository.remove(id);
+	}
 }

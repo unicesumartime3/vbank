@@ -1,0 +1,6 @@
+<dataset>
+	<funcionario/>
+
+	<usuario id="100001" login="rafael" nome="Rafael Suzin" senha="123456" funcionario_id="100001"/>
+	<usuario id="100001" login="julio" nome="Julio Serra" senha="123456" funcionario_id="100001"/>
+</dataset>
