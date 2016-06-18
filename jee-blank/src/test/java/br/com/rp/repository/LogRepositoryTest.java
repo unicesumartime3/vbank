@@ -14,10 +14,8 @@ import org.junit.Test;
 import br.com.rp.AbstractTest;
 import br.com.rp.domain.Log;
 import br.com.rp.domain.TipoOperacao;
-import br.com.rp.repository.LogRepository;
-
-public class LogRepositoryTest extends AbstractTest {
-
+public class LogRepositoryTest extends AbstractTest{
+	
 	@EJB
 	private LogRepository repository;
 

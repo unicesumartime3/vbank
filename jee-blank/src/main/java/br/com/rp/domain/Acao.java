@@ -1,9 +1,13 @@
 package br.com.rp.domain;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -46,5 +50,13 @@ public class Acao extends BaseEntity implements Serializable{
 	public void setDsAcao(String descricaoAcao) {
 		this.descricaoAcao = descricaoAcao;
 	}
-	
+
+	public String getDescricaoAcao() {
+		return descricaoAcao;
+	}
+
+	public void setDescricaoAcao(String descricaoAcao) {
+		this.descricaoAcao = descricaoAcao;
+	}
+
 }

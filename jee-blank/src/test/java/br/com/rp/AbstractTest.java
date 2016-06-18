@@ -1,7 +1,6 @@
 package br.com.rp;
 
 import java.io.File;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,7 +20,6 @@ import br.com.rp.repository.LogRepositoryTest;
 import br.com.rp.repository.Repository;
 import br.com.rp.repository.impl.AbstractRepositoryImpl;
 import br.com.rp.repository.service.LogServiceTest;
-import br.com.rp.rest.LogRestTest;
 import br.com.rp.services.LogService;
 
 @RunWith(Arquillian.class)
