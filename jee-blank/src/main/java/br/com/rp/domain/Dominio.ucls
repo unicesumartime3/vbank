@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="br.com.rp.domain.proposta.Proposta" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/proposta/Proposta.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="br.com.rp.domain.Proposta" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/Proposta.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="201" y="422"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="br.com.rp.domain.cliente.Cliente" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/cliente/Cliente.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="br.com.rp.domain.Cliente" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/Cliente.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="456" y="191"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="br.com.rp.domain.conta.Conta" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/conta/Conta.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="br.com.rp.domain.Conta" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/Conta.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="736" y="131"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="br.com.rp.domain.usuario.Usuario" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/usuario/Usuario.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="br.com.rp.domain.Usuario" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/Usuario.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="713" y="423"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -37,9 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="br.com.rp.domain.usuario.UsuarioFuncionario" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/usuario/UsuarioFuncionario.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="br.com.rp.domain.UsuarioFuncionario" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/UsuarioFuncionario.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="625" y="708"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -47,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="br.com.rp.domain.usuario.UsuarioCliente" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/usuario/UsuarioCliente.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="br.com.rp.domain.UsuarioCliente" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/UsuarioCliente.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="459" y="473"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -56,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="br.com.rp.domain.funcionario.Funcionario" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/funcionario/Funcionario.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="br.com.rp.domain.Funcionario" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/Funcionario.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="966" y="348"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -65,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="br.com.rp.domain.funcionario.Cargo" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/funcionario/Cargo.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="br.com.rp.domain.Cargo" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/Cargo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="994" y="101"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -74,8 +73,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="br.com.rp.domain.permissoes.Acao" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/permissoes/Acao.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="br.com.rp.domain.Acao" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/Acao.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1167" y="441"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -83,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="br.com.rp.domain.permissoes.AcaoUsuario" project="principal" 
-    file="/principal/src/main/java/br/com/rp/domain/permissoes/AcaoUsuario.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="br.com.rp.domain.AcaoUsuario" project="principal" 
+    file="/principal/src/main/java/br/com/rp/domain/AcaoUsuario.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1075" y="646"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

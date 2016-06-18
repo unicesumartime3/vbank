@@ -67,12 +67,6 @@
 				<scope>test</scope>
 				<version>2.2.0-alpha-2</version>
 			</dependency>
-			<!-- arquillian -->
-			<dependency>
-				<groupId>org.glassfish.jersey.core</groupId>
-				<artifactId>jersey-client</artifactId>
-				<version>2.23</version>
-			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -103,7 +97,12 @@
 			<artifactId>google-collections</artifactId>
 			<version>1.0</version>
 		</dependency>
-
+		<!-- arquillian -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.23</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

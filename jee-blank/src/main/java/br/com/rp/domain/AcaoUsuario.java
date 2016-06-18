@@ -1,4 +1,4 @@
-package br.com.rp.domain.permissoes;
+package br.com.rp.domain;
  
 import java.io.Serializable;
 
@@ -7,11 +7,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import br.com.rp.domain.BaseEntity;
-import br.com.rp.domain.funcionario.Funcionario;
-import br.com.rp.domain.usuario.Usuario;
-import br.com.rp.domain.usuario.UsuarioFuncionario;
 
 /**
  * AcaoFuncionario

@@ -1,4 +1,4 @@
-package br.com.rp.domain.usuario;
+package br.com.rp.domain;
 
 import java.util.Set;
 
@@ -8,9 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import br.com.rp.domain.funcionario.Funcionario;
-import br.com.rp.domain.permissoes.AcaoUsuario;
+import javax.persistence.OneToMany;
 
 /**
  * UsuarioFuncionario
@@ -36,9 +34,10 @@ public class UsuarioFuncionario extends Usuario {
 	 * Funcionário ao qual este usuário pertence.
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_funcionario", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "funcionario_id", nullable = false)
 	private Funcionario funcionario;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarioFuncionario")
 	private Set<AcaoUsuario> acaoUsuarios;
 	
 	public UsuarioFuncionario() {

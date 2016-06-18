@@ -1,12 +1,10 @@
-package br.com.rp.domain.usuario;
+package br.com.rp.domain;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import br.com.rp.domain.cliente.Cliente;
 
 /**
  * UsuarioCliente
@@ -28,7 +26,7 @@ public class UsuarioCliente extends Usuario {
 	 * cliente.
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id", nullable = true)
+	@JoinColumn(name = "cliente_id", nullable = true)
 	private Cliente cliente;
 
 	public UsuarioCliente() {

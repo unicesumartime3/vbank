@@ -1,6 +1,5 @@
 package br.com.rp.rest;
 
-import java.net.URL;
 import java.util.List;
 
 import javax.ws.rs.client.Client;
@@ -9,7 +8,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
 import org.jboss.arquillian.persistence.UsingDataSet;
-import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.Assert;
 import org.junit.Test;
 

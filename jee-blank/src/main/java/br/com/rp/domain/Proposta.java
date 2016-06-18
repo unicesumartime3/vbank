@@ -1,4 +1,4 @@
-package br.com.rp.domain.proposta;
+package br.com.rp.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,10 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import br.com.rp.domain.BaseEntity;
-import br.com.rp.domain.MotivoRejeicao;
-import br.com.rp.domain.usuario.UsuarioFuncionario;
 
 @Entity
 @Table(name = "proposta")
@@ -35,11 +31,11 @@ public class Proposta extends BaseEntity implements Serializable{
 	private Date dataProposta;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuarioanalise", referencedColumnName = "id", nullable = true)
+	@JoinColumn(name = "usuarioanalise_id", referencedColumnName = "id", nullable = true)
 	private UsuarioFuncionario usuarioAnalise;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_motivorejeicao", referencedColumnName = "id", nullable = true)
+	@JoinColumn(name = "motivorejeicao_id", referencedColumnName = "id", nullable = true)
 	private MotivoRejeicao motivoRejeicao;
 	
 	public Proposta() {

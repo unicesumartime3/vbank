@@ -1,12 +1,10 @@
-package br.com.rp.domain.conta;
+package br.com.rp.domain;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import br.com.rp.domain.BaseEntity;
 
 /**
  * Conta

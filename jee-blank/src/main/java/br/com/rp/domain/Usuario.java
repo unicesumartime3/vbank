@@ -1,4 +1,4 @@
-package br.com.rp.domain.usuario;
+package br.com.rp.domain;
 
 import java.io.Serializable;
 
@@ -10,8 +10,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
-import br.com.rp.domain.BaseEntity;
 
 @Entity
 @Table(name = "usuario")

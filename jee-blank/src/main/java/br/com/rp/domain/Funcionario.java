@@ -1,4 +1,4 @@
-package br.com.rp.domain.funcionario;
+package br.com.rp.domain;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -15,9 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import br.com.rp.domain.BaseEntity;
-import br.com.rp.domain.permissoes.AcaoUsuario;
 
 /**
  * Funcionario
