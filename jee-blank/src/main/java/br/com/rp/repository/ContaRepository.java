@@ -1,7 +1,5 @@
 package br.com.rp.repository;
 
-import javax.ejb.Local;
-
 import br.com.rp.domain.Conta;
 
 /**
@@ -21,5 +19,6 @@ import br.com.rp.domain.Conta;
  */
 
 public interface ContaRepository extends Repository<Conta> {
+
 
 }
