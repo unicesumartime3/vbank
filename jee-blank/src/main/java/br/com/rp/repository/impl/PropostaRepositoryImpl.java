@@ -2,8 +2,8 @@ package br.com.rp.repository.impl;
 
 import javax.ejb.Stateless;
 
-import br.com.rp.domain.Cargo;
-import br.com.rp.repository.CargoRepository;
+import br.com.rp.domain.Proposta;
+import br.com.rp.repository.PropostaRepository;
 
 /**
  * 
@@ -21,10 +21,9 @@ import br.com.rp.repository.CargoRepository;
  *
  */
 @Stateless
-public class CargoRopositoryImpl extends AbstractRepositoryImpl<Cargo> implements CargoRepository {
+public class PropostaRepositoryImpl extends AbstractRepositoryImpl<Proposta> implements PropostaRepository {
 
-	public CargoRopositoryImpl() {
-		super(Cargo.class);
+	public PropostaRepositoryImpl() {
+		super(Proposta.class);
 	}
-
 }

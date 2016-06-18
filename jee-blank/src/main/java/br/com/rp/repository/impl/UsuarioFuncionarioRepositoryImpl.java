@@ -2,8 +2,8 @@ package br.com.rp.repository.impl;
 
 import javax.ejb.Stateless;
 
-import br.com.rp.domain.Cargo;
-import br.com.rp.repository.CargoRepository;
+import br.com.rp.domain.UsuarioFuncionario;
+import br.com.rp.repository.UsuarioFuncionarioRepository;
 
 /**
  * 
@@ -21,10 +21,11 @@ import br.com.rp.repository.CargoRepository;
  *
  */
 @Stateless
-public class CargoRopositoryImpl extends AbstractRepositoryImpl<Cargo> implements CargoRepository {
+public class UsuarioFuncionarioRepositoryImpl extends AbstractRepositoryImpl<UsuarioFuncionario>
+		implements UsuarioFuncionarioRepository {
 
-	public CargoRopositoryImpl() {
-		super(Cargo.class);
+	public UsuarioFuncionarioRepositoryImpl() {
+		super(UsuarioFuncionario.class);
 	}
 
 }

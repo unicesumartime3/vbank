@@ -1,6 +1,6 @@
 package br.com.rp.repository;
 
-import br.com.rp.domain.Cargo;
+import br.com.rp.domain.UsuarioFuncionario;
 
 /**
  * 
@@ -17,6 +17,6 @@ import br.com.rp.domain.Cargo;
  * @email rafaelsuzin1@gmail.com
  *
  */
-public interface CargoRepository extends Repository<Cargo> {
+public interface UsuarioFuncionarioRepository extends Repository<UsuarioFuncionario> {
 
 }

@@ -7,9 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Acao
+ *  * Acao
  * 
  * Classe que identifica as ações do funcionário.
+ * 
+ * @author Christian Marchiori
+ * @email cmxk@live.com
+ *
+ * @author Flávia Ferreira
+ * @email flaviahferreirah@gmail.com
+ *
+ * @author Júlio Serra
+ * @email julioserraaraujo@gmail.com 
  * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com

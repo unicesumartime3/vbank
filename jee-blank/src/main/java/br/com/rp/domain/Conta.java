@@ -11,10 +11,20 @@ import javax.persistence.Table;
  * 
  * Classe que identifica as contas a serem usadas em clientes.
  * 
+ * @author Christian Marchiori
+ * @email cmxk@live.com
+ *
+ * @author Flávia Ferreira
+ * @email flaviahferreirah@gmail.com
+ *
+ * @author Júlio Serra
+ * @email julioserraaraujo@gmail.com 
+ * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com
  *
  */
+
 @Entity
 @Table(name = "conta")
 public class Conta extends BaseEntity implements Serializable {

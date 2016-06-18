@@ -7,9 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Cargo
+ *  * Cargo
  * 
  * Classe que identifica o cargo dos funcionários.
+ * 
+ * @author Christian Marchiori
+ * @email cmxk@live.com
+ *
+ * @author Flávia Ferreira
+ * @email flaviahferreirah@gmail.com
+ *
+ * @author Júlio Serra
+ * @email julioserraaraujo@gmail.com 
  * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com

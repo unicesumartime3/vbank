@@ -2,7 +2,6 @@ package br.com.rp.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,27 +9,41 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+/**
+ * 
+ * @author Christian Marchiori
+ * @email cmxk@live.com
+ *
+ * @author Flávia Ferreira
+ * @email flaviahferreirah@gmail.com
+ *
+ * @author Júlio Serra
+ * @email julioserraaraujo@gmail.com
+ * 
+ * @author Rafael Suzin
+ * @email rafaelsuzin1@gmail.com
+ *
+ */
 
 @Entity
 @Table(name = "cliente")
 public class Cliente extends BaseEntity implements Serializable {
 
-	
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
-	
+
 	@Column(name = "cpf", length = 14, nullable = false)
 	private String cpf;
-	
+
 	@Column(name = "vl_renda", precision = 14, scale = 2, nullable = false)
 	private BigDecimal vlRenda;
-	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "conta_id", nullable = false)
 	private Conta conta;
-	
+
 	public Cliente() {
 
 	}
@@ -59,7 +72,6 @@ public class Cliente extends BaseEntity implements Serializable {
 		this.vlRenda = vlRenda;
 	}
 
-
 	public Conta getConta() {
 		return conta;
 	}
@@ -67,5 +79,5 @@ public class Cliente extends BaseEntity implements Serializable {
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
-	
+
 }

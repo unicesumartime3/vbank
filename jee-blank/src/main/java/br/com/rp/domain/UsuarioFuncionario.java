@@ -1,14 +1,11 @@
 package br.com.rp.domain;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  * UsuarioFuncionario
@@ -16,10 +13,20 @@ import javax.persistence.OneToMany;
  * Classe que identifica um usuário do tipo FUNCIONARIO. Nesta classe temos
  * métodos, atributos e definições de aceso específicas do usuário.
  * 
+ * @author Christian Marchiori
+ * @email cmxk@live.com
+ *
+ * @author Flávia Ferreira
+ * @email flaviahferreirah@gmail.com
+ *
+ * @author Júlio Serra
+ * @email julioserraaraujo@gmail.com
+ * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com
  *
  */
+
 @Entity
 @DiscriminatorValue(value = "funcionario")
 public class UsuarioFuncionario extends Usuario {
@@ -29,17 +36,14 @@ public class UsuarioFuncionario extends Usuario {
 	 */
 	@Column(name = "login", length = 30, nullable = true)
 	private String login;
-	
+
 	/*
 	 * Funcionário ao qual este usuário pertence.
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "funcionario_id", nullable = false)
 	private Funcionario funcionario;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarioFuncionario")
-	private Set<AcaoUsuario> acaoUsuarios;
-	
+
 	public UsuarioFuncionario() {
 		super();
 	}
@@ -58,13 +62,5 @@ public class UsuarioFuncionario extends Usuario {
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
-	}
-
-	public Set<AcaoUsuario> getAcaoUsuarios() {
-		return acaoUsuarios;
-	}
-
-	public void setAcaoUsuarios(Set<AcaoUsuario> acaoUsuarios) {
-		this.acaoUsuarios = acaoUsuarios;
 	}
 }

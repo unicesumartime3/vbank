@@ -11,6 +11,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+/**
+ * Proposta
+ * 
+ * Prosta de abertura de conta.
+ * 
+ * @author Christian Marchiori
+ * @email cmxk@live.com
+ *
+ * @author Flávia Ferreira
+ * @email flaviahferreirah@gmail.com
+ *
+ * @author Júlio Serra
+ * @email julioserraaraujo@gmail.com 
+ * 
+ * @author Rafael Suzin
+ * @email rafaelsuzin1@gmail.com
+ *
+ */
+
 @Entity
 @Table(name = "proposta")
 public class Proposta extends BaseEntity implements Serializable{
