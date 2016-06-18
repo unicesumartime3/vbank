@@ -6,6 +6,8 @@ import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.h2.command.dml.Update;
+
 import br.com.rp.domain.BaseEntity;
 import br.com.rp.repository.Repository;
 
@@ -23,7 +25,7 @@ public abstract class AbstractRepositoryImpl<T extends BaseEntity> implements Re
 		}
 		this.clazz = clazz;
 	}
-
+	
 	@Override
 	public List<T> getAll() {
 		return em.createQuery("from " + clazz.getSimpleName(), clazz).getResultList();

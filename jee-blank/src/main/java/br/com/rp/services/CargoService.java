@@ -17,4 +17,16 @@ public class CargoService {
 	public List<Cargo> getAll(){
 		return cargoRepository.getAll();
 	}
+	
+	public Cargo save(Cargo cargo){
+		return cargoRepository.save(cargo);
+	}
+	
+	public Cargo findById(Long id){
+		return cargoRepository.findById(id);
+	}
+	
+	public void remove(Long id){
+		cargoRepository.remove(id);
+	}
 }
