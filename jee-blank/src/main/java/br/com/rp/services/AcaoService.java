@@ -33,4 +33,16 @@ public class AcaoService {
 	public List<Acao> getAll(){
 		return acaoRepository.getAll();
 	}
+	
+	public Acao save(Acao acao){
+		return acaoRepository.save(acao);
+	}
+	
+	public Acao findById(Long id){
+		return acaoRepository.findById(id);
+	}
+	
+	public void remove(Long id){
+		acaoRepository.remove(id);
+	}
 }
