@@ -14,6 +14,8 @@ import br.com.rp.AbstractTest;
 import br.com.rp.domain.Cliente;
 import br.com.rp.domain.Conta;
 
+
+@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class ClienteRepositoryTest extends AbstractTest {
 
 	@EJB
@@ -41,7 +43,6 @@ public class ClienteRepositoryTest extends AbstractTest {
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/cliente.xml")
 	public void deveRetornarDoisRegistros() {
 		Assert.assertEquals(2, clienteRepository.getAll().size());
