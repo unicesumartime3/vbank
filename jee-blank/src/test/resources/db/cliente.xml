@@ -1,0 +1,7 @@
+<dataset>
+	<conta id="100001" nr_conta="12345" is_contacorrente="true" is_contapoupanca="false"/>
+	<conta id="100002" nr_conta="67890" is_contacorrente="false" is_contapoupanca="true"/>
+	
+	<cliente id="100001" nome="Julio Serra" cpf="862.946.864-58" vl_renda="8500.00" conta_id="100001"/>
+	<cliente id="100002" nome="Perola Araujo" cpf="731.417.941-70" vl_renda="1500.00" conta_id="100002"/>
+</dataset>
