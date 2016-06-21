@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import javax.ejb.EJB;
 
-import org.jboss.arquillian.persistence.UsingDataSet;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -22,27 +21,20 @@ public class ClienteRepositoryTest extends AbstractTest {
 
 	@Test
 	public void deveInserirClienteComSucesso() {
-
 		Conta conta = new Conta();
-		conta.setNrConta("1234");
 		conta.setIsContaCorrente(true);
-		conta.setIsContaPoupanca(false);
+		conta.setIsContaPoupanca(true);
+		conta.setNrConta("125458");
 		contaRepository.save(conta);
 
 		Cliente cliente = new Cliente();
-		cliente.setNome("Julio Serra");
-		cliente.setCpf("862.946.864-58");
-		cliente.setVlRenda(new BigDecimal(8500.00));
+		cliente.setCpf("157898775856");
+		cliente.setNome("Rafael");
+		cliente.setVlRenda(new BigDecimal(8550.00));
 		cliente.setConta(conta);
 		clienteRepository.save(cliente);
 
 		Assert.assertNotNull(cliente.getId());
-	}
-	
-	@Test
-	@UsingDataSet("db/cliente.xml")
-	public void deveCompararNomeCliente(){
-		Assert.assertEquals("Julio Serra", clienteRepository.findById(100001L).getNome());
 	}
 
 }
