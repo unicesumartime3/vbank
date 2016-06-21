@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import javax.ejb.EJB;
 
+import org.jboss.arquillian.persistence.Cleanup;
+import org.jboss.arquillian.persistence.CleanupStrategy;
+import org.jboss.arquillian.persistence.UsingDataSet;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -35,6 +38,13 @@ public class ClienteRepositoryTest extends AbstractTest {
 		clienteRepository.save(cliente);
 
 		Assert.assertNotNull(cliente.getId());
+	}
+	
+	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
+	@UsingDataSet("db/cliente.xml")
+	public void deveRetornarDoisRegistros() {
+		Assert.assertEquals(2, clienteRepository.getAll().size());
 	}
 
 }
