@@ -3,12 +3,8 @@ package br.com.rp.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -34,9 +30,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "funcionario")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tp_funcionario", discriminatorType = DiscriminatorType.STRING, length = 15)
-public abstract class Funcionario extends BaseEntity implements Serializable {
+public class Funcionario extends BaseEntity implements Serializable {
 
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
@@ -47,7 +41,7 @@ public abstract class Funcionario extends BaseEntity implements Serializable {
 	/*
 	 * Cargo do funcionário.
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cargo", referencedColumnName = "id", nullable = false)
 	private Cargo cargo;
 
@@ -70,4 +64,13 @@ public abstract class Funcionario extends BaseEntity implements Serializable {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
+	}
+
 }
