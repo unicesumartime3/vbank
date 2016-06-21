@@ -40,7 +40,7 @@ public class Cliente extends BaseEntity implements Serializable {
 	@Column(name = "vl_renda", precision = 14, scale = 2, nullable = false)
 	private BigDecimal vlRenda;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "conta_id", nullable = false)
 	private Conta conta;
 
