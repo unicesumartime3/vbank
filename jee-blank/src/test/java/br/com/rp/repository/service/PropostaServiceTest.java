@@ -25,6 +25,7 @@ import br.com.rp.services.MotivoRejeicaoService;
 import br.com.rp.services.PropostaService;
 import br.com.rp.services.UsuarioFuncionarioService;
 
+@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class PropostaServiceTest extends AbstractTest{
 	
 	@EJB
@@ -43,7 +44,6 @@ public class PropostaServiceTest extends AbstractTest{
 	private PropostaService propostaService;
 		
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	public void deveInserirPropostaComSucesso() throws ParseException {
 		MotivoRejeicao motivo = new MotivoRejeicao();
 		motivo.setDsMotivo("Renda insuficiente");
@@ -81,35 +81,30 @@ public class PropostaServiceTest extends AbstractTest{
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveRetornarDoisRegistros() {
 		Assert.assertEquals(2, propostaService.getAll().size());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveCompararNomeProposta() {
 		Assert.assertEquals("Maria", propostaService.findById(100002L).getNome());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveCompararCPFProposta() {
 		Assert.assertEquals("09006848956", propostaService.findById(100001L).getCpf());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveCompararNomeFuncionarioAnalise(){
 		Assert.assertEquals("Rafael Suzin", usuarioFuncionarioService.findById(100001L).getFuncionario().getNome());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveRemovePropostaComSucesso(){
 		propostaService.remove(100001L);
@@ -117,7 +112,6 @@ public class PropostaServiceTest extends AbstractTest{
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveAlterarPropostaComSucesso(){
 		Proposta proposta = propostaService.findById(100001L);
@@ -126,6 +120,5 @@ public class PropostaServiceTest extends AbstractTest{
 		propostaService.save(proposta);
 		Assert.assertEquals("Joaquim", propostaService.findById(100001L).getNome());
 	}
-
 
 }

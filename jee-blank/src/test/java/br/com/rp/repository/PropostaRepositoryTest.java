@@ -20,6 +20,7 @@ import br.com.rp.domain.MotivoRejeicao;
 import br.com.rp.domain.Proposta;
 import br.com.rp.domain.UsuarioFuncionario;
 
+@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class PropostaRepositoryTest extends AbstractTest{
 	
 	@EJB
@@ -38,7 +39,6 @@ public class PropostaRepositoryTest extends AbstractTest{
 	private PropostaRepository propostaRepository;
 		
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	public void deveInserirPropostaComSucesso() throws ParseException {
 		MotivoRejeicao motivo = new MotivoRejeicao();
 		motivo.setDsMotivo("Renda insuficiente");
@@ -76,35 +76,30 @@ public class PropostaRepositoryTest extends AbstractTest{
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveRetornarDoisRegistros() {
 		Assert.assertEquals(2, propostaRepository.getAll().size());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveCompararNomeProposta() {
 		Assert.assertEquals("Maria", propostaRepository.findById(100002L).getNome());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveCompararCPFProposta() {
 		Assert.assertEquals("09006848956", propostaRepository.findById(100001L).getCpf());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveCompararNomeFuncionarioAnalise(){
 		Assert.assertEquals("Rafael Suzin", usuarioFuncionarioRepository.findById(100001L).getFuncionario().getNome());
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveRemovePropostaComSucesso(){
 		propostaRepository.remove(100001L);
@@ -112,7 +107,6 @@ public class PropostaRepositoryTest extends AbstractTest{
 	}
 	
 	@Test
-	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	@UsingDataSet("db/proposta.xml")
 	public void deveAlterarPropostaComSucesso(){
 		Proposta proposta = propostaRepository.findById(100001L);
@@ -121,6 +115,5 @@ public class PropostaRepositoryTest extends AbstractTest{
 		propostaRepository.save(proposta);
 		Assert.assertEquals("Joaquim", propostaRepository.findById(100001L).getNome());
 	}
-
 
 }
