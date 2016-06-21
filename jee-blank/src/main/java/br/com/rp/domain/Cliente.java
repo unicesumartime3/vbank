@@ -3,7 +3,6 @@ package br.com.rp.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,14 +33,14 @@ public class Cliente extends BaseEntity implements Serializable {
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
 
-	@Column(name = "cpf", length = 14, nullable = false)
+	@Column(name = "cpf", length = 15, nullable = false)
 	private String cpf;
 
 	@Column(name = "vl_renda", precision = 14, scale = 2, nullable = false)
 	private BigDecimal vlRenda;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "conta_id", nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "conta_id", referencedColumnName= "id",nullable = false)
 	private Conta conta;
 
 	public Cliente() {

@@ -96,4 +96,9 @@ public class UsuarioFuncionarioRepositoryTest extends AbstractTest {
 		Assert.assertEquals("Gerente de Vendas", usuarioFuncionarioRepository.findById(100001L).getFuncionario().getCargo().getDescricaoCargo());
 	}
 	
+	@Test
+	@UsingDataSet("db/usuario_funcionario.xml")
+	public void deveRetornarDoisUsuarioFuncionarios() {
+		Assert.assertEquals(2, funcionarioRepository.getAll().size());
+	}
 }
