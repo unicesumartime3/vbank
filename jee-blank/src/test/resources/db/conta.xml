@@ -1,0 +1,4 @@
+<dataset>
+	<conta id="100001" nr_conta="12345" is_contacorrente="true" is_contapoupanca="false"/>
+	<conta id="100002" nr_conta="67890" is_contacorrente="false" is_contapoupanca="true"/>
+</dataset>

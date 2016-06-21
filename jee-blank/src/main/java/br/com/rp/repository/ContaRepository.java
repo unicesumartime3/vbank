@@ -11,7 +11,7 @@ import br.com.rp.domain.Conta;
  * @email flaviahferreirah@gmail.com
  *
  * @author Júlio Serra
- * @email julioserraaraujo@gmail.com 
+ * @email julioserraaraujo@gmail.com
  * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com
@@ -19,6 +19,5 @@ import br.com.rp.domain.Conta;
  */
 
 public interface ContaRepository extends Repository<Conta> {
-
 
 }
