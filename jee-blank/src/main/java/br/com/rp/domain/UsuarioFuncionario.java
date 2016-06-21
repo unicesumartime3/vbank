@@ -40,7 +40,7 @@ public class UsuarioFuncionario extends Usuario {
 	/*
 	 * Funcionário ao qual este usuário pertence.
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "funcionario_id", nullable = false)
 	private Funcionario funcionario;
 
