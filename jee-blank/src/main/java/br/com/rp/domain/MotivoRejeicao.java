@@ -25,7 +25,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "motivorejeicao")
-public abstract class MotivoRejeicao extends BaseEntity implements Serializable {
+public class MotivoRejeicao extends BaseEntity implements Serializable {
 
 	@Lob
 	@Column(name = "ds_motivo")
