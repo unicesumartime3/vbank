@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.ejb.EJB;
 
+import org.jboss.arquillian.persistence.Cleanup;
+import org.jboss.arquillian.persistence.CleanupStrategy;
 import org.jboss.arquillian.persistence.UsingDataSet;
 import org.junit.Assert;
 import org.junit.Test;
@@ -36,6 +38,7 @@ public class PropostaRepositoryTest extends AbstractTest{
 	private PropostaRepository propostaRepository;
 		
 	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 	public void deveInserirPropostaComSucesso() throws ParseException {
 		MotivoRejeicao motivo = new MotivoRejeicao();
 		motivo.setDsMotivo("Renda insuficiente");
@@ -72,6 +75,52 @@ public class PropostaRepositoryTest extends AbstractTest{
 		Assert.assertNotNull(proposta.getId());
 	}
 	
+	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
+	@UsingDataSet("db/proposta.xml")
+	public void deveRetornarDoisRegistros() {
+		Assert.assertEquals(2, propostaRepository.getAll().size());
+	}
+	
+	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
+	@UsingDataSet("db/proposta.xml")
+	public void deveCompararNomeProposta() {
+		Assert.assertEquals("Maria", propostaRepository.findById(100002L).getNome());
+	}
+	
+	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
+	@UsingDataSet("db/proposta.xml")
+	public void deveCompararCPFProposta() {
+		Assert.assertEquals("09006848956", propostaRepository.findById(100001L).getCpf());
+	}
+	
+	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
+	@UsingDataSet("db/proposta.xml")
+	public void deveCompararNomeFuncionarioAnalise(){
+		Assert.assertEquals("Rafael Suzin", usuarioFuncionarioRepository.findById(100001L).getFuncionario().getNome());
+	}
+	
+	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
+	@UsingDataSet("db/proposta.xml")
+	public void deveRemovePropostaComSucesso(){
+		propostaRepository.remove(100001L);
+		Assert.assertNull(propostaRepository.findById(100001L));
+	}
+	
+	@Test
+	@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
+	@UsingDataSet("db/proposta.xml")
+	public void deveAlterarPropostaComSucesso(){
+		Proposta proposta = propostaRepository.findById(100001L);
+		proposta.setNome("Joaquim");
+		proposta.setRenda(new BigDecimal(800.00));
+		propostaRepository.save(proposta);
+		Assert.assertEquals("Joaquim", propostaRepository.findById(100001L).getNome());
+	}
 
 
 }
