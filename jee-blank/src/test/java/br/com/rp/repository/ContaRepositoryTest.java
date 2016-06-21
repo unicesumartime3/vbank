@@ -28,8 +28,7 @@ public class ContaRepositoryTest extends AbstractTest {
 	@Test
 	@UsingDataSet("db/conta.xml")
 	public void deveCompararNumeroConta() {
-		Conta conta = contaRepository.findById(100001L);
-		Assert.assertEquals("12345", conta.getNrConta());
+		Assert.assertEquals("12345", contaRepository.findById(100001L).getNrConta());
 	}
 
 	@Test
