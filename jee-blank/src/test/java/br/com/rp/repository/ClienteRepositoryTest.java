@@ -14,7 +14,6 @@ import br.com.rp.AbstractTest;
 import br.com.rp.domain.Cliente;
 import br.com.rp.domain.Conta;
 
-
 @Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class ClienteRepositoryTest extends AbstractTest {
 
@@ -40,6 +39,40 @@ public class ClienteRepositoryTest extends AbstractTest {
 		clienteRepository.save(cliente);
 
 		Assert.assertNotNull(cliente.getId());
+	}
+	
+	@Test
+	@UsingDataSet("db/cliente.xml")
+	public void deveAlterarClienteComSucesso() {
+		Cliente cliente = clienteRepository.findById(100002L);
+		cliente.setNome("Daniele Magron");
+		clienteRepository.save(cliente);
+		Assert.assertEquals("Daniele Magron", clienteRepository.findById(100002L).getNome());
+	}
+	
+	@Test
+	@UsingDataSet("db/cliente.xml")
+	public void deveRemoverClienteComSucesso() {
+		clienteRepository.remove(100002L);
+		Assert.assertNull(clienteRepository.findById(100002L));
+	}
+	
+	@Test
+	@UsingDataSet("db/cliente.xml")
+	public void deveCompararNomeCliente() {
+		Assert.assertEquals("Perola Araujo", clienteRepository.findById(100002L).getNome());
+	}
+	
+	@Test
+	@UsingDataSet("db/cliente.xml")
+	public void deveRetornarNumeroContaCliente() {
+		Assert.assertNotNull(clienteRepository.findById(100002L).getConta().getNrConta());
+	}
+	
+	@Test
+	@UsingDataSet("db/cliente.xml")
+	public void deveCompararNumeroContaCliente() {
+		Assert.assertEquals("67890", clienteRepository.findById(100002L).getConta().getNrConta());
 	}
 	
 	@Test
