@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import br.com.rp.domain.Cargo;
 import br.com.rp.domain.Funcionario;
 import br.com.rp.repository.FuncionarioRepository;
 
@@ -34,4 +35,16 @@ public class FuncionarioService {
 		return funcionarioRepository.getAll();
 	}
 	
+	
+	public Funcionario save(Funcionario funcionario){
+		return funcionarioRepository.save(funcionario);
+	}
+	
+	public Funcionario findById(Long id){
+		return funcionarioRepository.findById(id);
+	}
+	
+	public void remove(Long id){
+		funcionarioRepository.remove(id);
+	}
 }
