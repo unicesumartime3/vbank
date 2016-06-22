@@ -13,7 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 /**
  * Proposta
  * 
@@ -26,7 +25,7 @@ import javax.persistence.TemporalType;
  * @email flaviahferreirah@gmail.com
  *
  * @author Júlio Serra
- * @email julioserraaraujo@gmail.com 
+ * @email julioserraaraujo@gmail.com
  * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com
@@ -35,14 +34,14 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "proposta")
-public class Proposta extends BaseEntity implements Serializable{
+public class Proposta extends BaseEntity implements Serializable {
 
 	@Column(name = "cpf", length = 14, nullable = false)
 	private String cpf;
-	
+
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
-	
+
 	@Column(name = "regiao", length = 20, nullable = false)
 	private String regiao;
 
@@ -50,9 +49,9 @@ public class Proposta extends BaseEntity implements Serializable{
 	private BigDecimal renda;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dt_proposta", nullable = false)	
+	@Column(name = "dt_proposta", nullable = false)
 	private Date dataProposta;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuarioanalise_id", referencedColumnName = "id", nullable = true)
 	private UsuarioFuncionario usuarioAnalise;
@@ -60,7 +59,7 @@ public class Proposta extends BaseEntity implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "motivorejeicao_id", referencedColumnName = "id", nullable = true)
 	private MotivoRejeicao motivoRejeicao;
-	
+
 	public Proposta() {
 
 	}
@@ -121,5 +120,4 @@ public class Proposta extends BaseEntity implements Serializable{
 		this.motivoRejeicao = motivoRejeicao;
 	}
 
-	
 }
