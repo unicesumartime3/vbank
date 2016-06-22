@@ -40,7 +40,7 @@ public class Cliente extends BaseEntity implements Serializable {
 	private BigDecimal vlRenda;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_conta", referencedColumnName= "id",nullable = false)
+	@JoinColumn(name = "id_conta", referencedColumnName = "id", nullable = false)
 	private Conta conta;
 
 	public Cliente() {
@@ -78,5 +78,4 @@ public class Cliente extends BaseEntity implements Serializable {
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
-
 }

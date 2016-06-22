@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -47,6 +49,7 @@ public class Proposta extends BaseEntity implements Serializable{
 	@Column(name = "vl_renda", precision = 14, scale = 2, nullable = false)
 	private BigDecimal renda;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_proposta", nullable = false)	
 	private Date dataProposta;
 	

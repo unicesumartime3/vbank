@@ -98,11 +98,8 @@
 			<version>1.0</version>
 		</dependency>
 		<!-- arquillian -->
-<!-- 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>2.23</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.glassfish.jersey.core</groupId> <artifactId>jersey-client</artifactId> 
+			<version>2.23</version> </dependency> -->
 
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -180,6 +177,20 @@
 
 		<!-- <dependency> <groupId>org.jboss.resteasy</groupId> <artifactId>resteasy-client</artifactId> 
 			<version>3.0.2.Final</version> <scope>test</scope> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-core -->
+		<dependency>
+			<groupId>br.com.caelum.stella</groupId>
+			<artifactId>caelum-stella-core</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-bean-validation -->
+		<dependency>
+			<groupId>br.com.caelum.stella</groupId>
+			<artifactId>caelum-stella-bean-validation</artifactId>
+			<version>2.1.2</version>
+		</dependency>
 
 	</dependencies>
 

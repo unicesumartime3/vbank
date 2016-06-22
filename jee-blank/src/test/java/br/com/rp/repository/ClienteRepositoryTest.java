@@ -32,7 +32,7 @@ public class ClienteRepositoryTest extends AbstractTest {
 		contaRepository.save(conta);
 
 		Cliente cliente = new Cliente();
-		cliente.setCpf("157898775856");
+		cliente.setCpf("09006848956");
 		cliente.setNome("Rafael");
 		cliente.setVlRenda(new BigDecimal(8550.00));
 		cliente.setConta(conta);
@@ -40,7 +40,7 @@ public class ClienteRepositoryTest extends AbstractTest {
 
 		Assert.assertNotNull(cliente.getId());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
 	public void deveAlterarClienteComSucesso() {
@@ -49,32 +49,32 @@ public class ClienteRepositoryTest extends AbstractTest {
 		clienteRepository.save(cliente);
 		Assert.assertEquals("Daniele Magron", clienteRepository.findById(100002L).getNome());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
 	public void deveRemoverClienteComSucesso() {
 		clienteRepository.remove(100002L);
 		Assert.assertNull(clienteRepository.findById(100002L));
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
 	public void deveCompararNomeCliente() {
 		Assert.assertEquals("Perola Araujo", clienteRepository.findById(100002L).getNome());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
 	public void deveRetornarNumeroContaCliente() {
 		Assert.assertNotNull(clienteRepository.findById(100002L).getConta().getNrConta());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
 	public void deveCompararNumeroContaCliente() {
 		Assert.assertEquals("67890", clienteRepository.findById(100002L).getConta().getNrConta());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
 	public void deveRetornarDoisRegistros() {

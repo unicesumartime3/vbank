@@ -3,5 +3,5 @@
 	<conta id="100002" nr_conta="67890" is_contacorrente="false" is_contapoupanca="true"/>
 	
 	<cliente id="100001" nome="Julio Serra" cpf="08565895685" vl_renda="8500.00" id_conta="100001"/>
-	<cliente id="100002" nome="Perola Araujo" cpf="28465985685" vl_renda="1500.00" id_conta="100002"/>
+	<cliente id="100002" nome="Perola Araujo" cpf="20192073206" vl_renda="1500.00" id_conta="100002"/>
 </dataset>
