@@ -1,0 +1,7 @@
+<dataset>
+	<cliente id="100001" nome="Christian Marchiori da Silva" cpf="09005548625" />
+	<cliente id="100002" nome="Rafael Suzin" cpf="09006848956"/>
+
+	<usuario id="100001" nome="Christian Marchiori" senha="123456" cliente_id="100001" tp_usuario="cliente"/>
+	<usuario id="100002" nome="Rafael Suzin" senha="123456" cliente_id="100002" tp_usuario="cliente"/>
+</dataset>

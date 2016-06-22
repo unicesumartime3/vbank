@@ -33,5 +33,17 @@ public class UsuarioClienteService {
 	public List<UsuarioCliente> getAll() {
 		return usuarioClienteRepository.getAll();
 	}
+	
+	public UsuarioCliente save(UsuarioCliente usuarioCliente){
+		return usuarioClienteRepository.save(usuarioCliente);
+	}
+	
+	public UsuarioCliente findById(Long id){
+		return usuarioClienteRepository.findById(id);
+	}
+	
+	public void remove(Long id){
+		usuarioClienteRepository.remove(id);
+	}	
 		
 }
