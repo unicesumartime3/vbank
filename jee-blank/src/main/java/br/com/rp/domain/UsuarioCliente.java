@@ -35,12 +35,22 @@ public class UsuarioCliente extends Usuario {
 	 * usuário de clientes, o login de acesso será feito pelo número da conta do
 	 * cliente.
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente_id", nullable = true)
 	private Cliente cliente;
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
 	public UsuarioCliente() {
 		super();
 	}
+	
+	
 
 }
