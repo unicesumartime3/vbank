@@ -21,6 +21,7 @@ public class FuncionarioServiceTest extends AbstractTest {
 	private FuncionarioService funcionarioService;
 
 	@Test
+	@UsingDataSet("db/funcionario.xml")
 	public void deveInserirFuncionarioComSucesso() {
 		Cargo cargo = new Cargo();
 		cargo.setDescricaoCargo("Gerente de Vendas");
@@ -67,11 +68,27 @@ public class FuncionarioServiceTest extends AbstractTest {
 	public void deveCompararDescricaoCargoFuncionario() {
 		Assert.assertEquals("Gerente de Vendas", funcionarioService.findById(100001L).getCargo().getDescricaoCargo());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/funcionario.xml")
-	public void deveRetornarDoisRegistros(){
+	public void deveRetornarDoisRegistros() {
 		Assert.assertEquals(2, funcionarioService.getAll().size());
 	}
 
+	@Test
+	@UsingDataSet("db/funcionario.xml")
+	public void deveRetornarFuncionarioPeloCpf() {
+		Assert.assertEquals("Julio Serra", funcionarioService.findByCpf("09005548625").getNome());
+	}
+
+	@Test
+	@UsingDataSet("db/funcionario.xml")
+	public void deveRetornarTrueCpfExistente() {
+		Assert.assertTrue(funcionarioService.isCpfExistente("09005548625"));
+	}
+
+	@Test
+	public void deveRetornarTrueCpfValido() {
+		Assert.assertTrue(funcionarioService.isCpfValido("21717048455"));
+	}
 }

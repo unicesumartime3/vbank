@@ -28,7 +28,13 @@ public class FuncionarioRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/save")
 	public Funcionario save(Funcionario funcionario) {
-		return funcionarioService.save(funcionario);
+		if (funcionarioService.isCpfExistente(funcionario.getCpf())) {
+			throw new RuntimeException("Já existe um funcionário cadastrado com este CPF.");
+		} else if (!funcionarioService.isCpfValido(funcionario.getCpf())){
+			throw new RuntimeException("O CPF informado não é válido.");
+		}else{
+			return funcionarioService.save(funcionario);
+		}
 	}
 
 	@PUT

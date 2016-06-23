@@ -33,7 +33,7 @@ public class FuncionarioRestTest extends AbstractTest {
 		Assert.assertNotNull(cargo);
 
 		Funcionario funcionarioParan = new Funcionario();
-		funcionarioParan.setCpf("09006848956");
+		funcionarioParan.setCpf("21717048455");
 		funcionarioParan.setNome("Julio Serra");
 		funcionarioParan.setCargo(cargo);
 
