@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
  * @email flaviahferreirah@gmail.com
  *
  * @author Júlio Serra
- * @email julioserraaraujo@gmail.com 
+ * @email julioserraaraujo@gmail.com
  * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com
@@ -43,6 +43,11 @@ public class UsuarioCliente extends Usuario {
 		return cliente;
 	}
 
+	public UsuarioCliente(String nome, String senha, Cliente cliente) {
+		super(nome, senha);
+		this.cliente = cliente;
+	}
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
@@ -50,7 +55,5 @@ public class UsuarioCliente extends Usuario {
 	public UsuarioCliente() {
 		super();
 	}
-	
-	
 
 }

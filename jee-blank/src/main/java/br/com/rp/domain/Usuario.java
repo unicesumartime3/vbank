@@ -56,6 +56,14 @@ public abstract class Usuario extends BaseEntity implements Serializable {
 	public Usuario() {
 
 	}
+	
+	public Usuario(String nome, String senha) {
+		super();
+		this.nome = nome;
+		this.senha = senha;
+	}
+
+
 
 	public String getNome() {
 		return nome;

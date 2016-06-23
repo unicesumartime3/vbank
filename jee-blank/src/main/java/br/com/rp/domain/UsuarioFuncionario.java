@@ -48,6 +48,12 @@ public class UsuarioFuncionario extends Usuario {
 		super();
 	}
 
+	public UsuarioFuncionario(String nome, String login, String senha, Funcionario funcionario) {
+		super(nome, senha);
+		this.login = login;
+		this.funcionario = funcionario;
+	}
+
 	public String getLogin() {
 		return login;
 	}

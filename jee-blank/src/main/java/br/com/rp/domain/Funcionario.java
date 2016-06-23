@@ -49,6 +49,13 @@ public class Funcionario extends BaseEntity implements Serializable {
 
 	}
 
+	public Funcionario(String nome, String cpf, Cargo cargo) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.cargo = cargo;
+	}
+
 	public String getNome() {
 		return nome;
 	}
