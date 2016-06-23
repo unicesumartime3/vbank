@@ -25,20 +25,8 @@ public class ClienteRepositoryTest extends AbstractTest {
 
 	@Test
 	public void deveInserirClienteComSucesso() {
-		Conta conta = new Conta();
-		conta.setIsContaCorrente(true);
-		conta.setIsContaPoupanca(true);
-		conta.setNrConta("125458");
-		contaRepository.save(conta);
-
-		Cliente cliente = new Cliente();
-		cliente.setCpf("09006848956");
-		cliente.setNome("Rafael");
-		cliente.setVlRenda(new BigDecimal(8550.00));
-		cliente.setConta(conta);
-		clienteRepository.save(cliente);
-
-		Assert.assertNotNull(cliente.getId());
+		Assert.assertNotNull(clienteRepository.save(new Cliente("Rafael", "157898775856", new BigDecimal(8550.00),
+				contaRepository.save(new Conta("123458", true, false)))).getId());
 	}
 
 	@Test

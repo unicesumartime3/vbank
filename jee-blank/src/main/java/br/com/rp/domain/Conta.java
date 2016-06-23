@@ -41,6 +41,14 @@ public class Conta extends BaseEntity implements Serializable {
 	public Conta() {
 
 	}
+	
+	public Conta(String nrConta, Boolean isContaCorrente, Boolean isContaPoupanca) {
+		this.nrConta = nrConta;
+		this.isContaCorrente = isContaCorrente;
+		this.isContaPoupanca = isContaPoupanca;
+	}
+
+
 
 	public String getNrConta() {
 		return nrConta;

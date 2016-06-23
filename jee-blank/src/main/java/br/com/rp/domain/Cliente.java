@@ -47,6 +47,13 @@ public class Cliente extends BaseEntity implements Serializable {
 
 	}
 
+	public Cliente(String nome, String cpf, BigDecimal vlRenda, Conta conta) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.vlRenda = vlRenda;
+		this.conta = conta;
+	}
+	
 	public String getNome() {
 		return nome;
 	}

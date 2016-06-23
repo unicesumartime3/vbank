@@ -27,20 +27,8 @@ public class ClienteServiceTest extends AbstractTest {
 
 	@Test
 	public void deveInserirClienteComSucesso() {
-		Conta conta = new Conta();
-		conta.setIsContaCorrente(true);
-		conta.setIsContaPoupanca(true);
-		conta.setNrConta("125458");
-		contaService.save(conta);
-
-		Cliente cliente = new Cliente();
-		cliente.setCpf("157898775856");
-		cliente.setNome("Rafael");
-		cliente.setVlRenda(new BigDecimal(8550.00));
-		cliente.setConta(conta);
-		clienteService.save(cliente);
-
-		Assert.assertNotNull(cliente.getId());
+		Assert.assertNotNull(clienteService.save(new Cliente("Rafael", "157898775856", new BigDecimal(8550.00),
+				contaService.save(new Conta("123458", true, false)))).getId());
 	}
 
 	@Test
@@ -98,22 +86,22 @@ public class ClienteServiceTest extends AbstractTest {
 	public void deveRetornarDoisRegistros() {
 		Assert.assertEquals(2, clienteService.getAll().size());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveRetornarClientePorCpf(){
+	public void deveRetornarClientePorCpf() {
 		Assert.assertNotNull(clienteService.findByCpf("20192073206"));
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveVerificarCpfExistente(){
+	public void deveVerificarCpfExistente() {
 		Assert.assertTrue(clienteService.isCpfExistente("20192073206"));
 	}
-	
+
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveVerificarCpfNaoExistente(){
+	public void deveVerificarCpfNaoExistente() {
 		Assert.assertFalse(clienteService.isCpfExistente("2019207356"));
 	}
 }
