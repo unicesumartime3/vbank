@@ -27,7 +27,7 @@ public class ClienteServiceTest extends AbstractTest {
 
 	@Test
 	public void deveInserirClienteComSucesso() {
-		Assert.assertNotNull(clienteService.save(new Cliente("Rafael", "157898775856", new BigDecimal(8550.00),
+		Assert.assertNotNull(clienteService.save(new Cliente("Rafael", "157898775856","rafael@gmail.com", new BigDecimal(8550.00),
 				contaService.save(new Conta("123458", true, false)))).getId());
 	}
 
@@ -103,5 +103,11 @@ public class ClienteServiceTest extends AbstractTest {
 	@UsingDataSet("db/cliente.xml")
 	public void deveVerificarCpfNaoExistente() {
 		Assert.assertFalse(clienteService.isCpfExistente("2019207356"));
+	}
+	
+	@Test
+	@UsingDataSet("db/cliente.xml")
+	public void deveCompararEmailCliente(){
+		Assert.assertEquals("julio@gmail.com", clienteService.findById(100001L).getEmail());
 	}
 }

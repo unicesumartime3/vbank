@@ -36,6 +36,9 @@ public class Cliente extends BaseEntity implements Serializable {
 	@Column(name = "cpf", length = 15, nullable = false)
 	private String cpf;
 
+	@Column(name = "email", length = 200, nullable = false)
+	private String email;
+	
 	@Column(name = "vl_renda", precision = 14, scale = 2, nullable = false)
 	private BigDecimal vlRenda;
 
@@ -47,11 +50,12 @@ public class Cliente extends BaseEntity implements Serializable {
 
 	}
 
-	public Cliente(String nome, String cpf, BigDecimal vlRenda, Conta conta) {
+	public Cliente(String nome, String cpf,String email, BigDecimal vlRenda, Conta conta) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.vlRenda = vlRenda;
 		this.conta = conta;
+		this.email = email;
 	}
 	
 	public String getNome() {
@@ -76,6 +80,14 @@ public class Cliente extends BaseEntity implements Serializable {
 
 	public void setVlRenda(BigDecimal vlRenda) {
 		this.vlRenda = vlRenda;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Conta getConta() {

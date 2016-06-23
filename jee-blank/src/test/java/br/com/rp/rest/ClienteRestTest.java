@@ -38,7 +38,7 @@ public class ClienteRestTest extends AbstractTest {
 
 		target = client.target(URL_BASE + "/cliente/save");
 		response = target.request().accept(MediaType.APPLICATION_JSON).post(Entity.entity(
-				new Cliente("Julio Serra", "21717048455", new BigDecimal(8000.00), conta), MediaType.APPLICATION_JSON));
+				new Cliente("Julio Serra", "21717048455", "julio@gmail.com",new BigDecimal(8000.00), conta), MediaType.APPLICATION_JSON));
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
 		Cliente cliente = response.readEntity(Cliente.class);
 		Assert.assertNotNull(cliente);
@@ -58,7 +58,7 @@ public class ClienteRestTest extends AbstractTest {
 		target = client.target(URL_BASE + "/cliente/update/100001");
 		response = target.request()
 				.put(Entity.entity(
-						new Cliente("Rafael Suzin", cliente.getCpf(), cliente.getVlRenda(), cliente.getConta()),
+						new Cliente("Rafael Suzin", cliente.getCpf(), cliente.getEmail(), cliente.getVlRenda(), cliente.getConta()),
 						MediaType.APPLICATION_JSON));
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
 		Cliente clienteResult = response.readEntity(Cliente.class);

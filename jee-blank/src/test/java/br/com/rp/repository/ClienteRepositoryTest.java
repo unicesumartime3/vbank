@@ -25,7 +25,7 @@ public class ClienteRepositoryTest extends AbstractTest {
 
 	@Test
 	public void deveInserirClienteComSucesso() {
-		Assert.assertNotNull(clienteRepository.save(new Cliente("Rafael", "157898775856", new BigDecimal(8550.00),
+		Assert.assertNotNull(clienteRepository.save(new Cliente("Rafael", "157898775856", "rafael@gmail.com", new BigDecimal(8550.00),
 				contaRepository.save(new Conta("123458", true, false)))).getId());
 	}
 

@@ -48,6 +48,7 @@ public class ClienteRest {
 		clienteResult.setNome(cliente.getNome());
 		clienteResult.setVlRenda(cliente.getVlRenda());
 		clienteResult.setConta(cliente.getConta());
+		clienteResult.setEmail(cliente.getEmail());
 
 		return clienteService.save(clienteResult);
 	}
