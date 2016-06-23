@@ -119,5 +119,4 @@ public class PropostaRestTest extends AbstractTest {
 		List<Proposta> propostas = (List<Proposta>) response.readEntity(List.class);
 		Assert.assertEquals(4, propostas.size());
 	}
-
 }
