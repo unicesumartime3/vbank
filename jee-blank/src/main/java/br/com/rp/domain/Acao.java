@@ -38,14 +38,13 @@ public class Acao extends BaseEntity implements Serializable{
 	public Acao() {
 
 	}
-
-	public String getDsAcao() {
-		return descricaoAcao;
-	}
-
-	public void setDsAcao(String descricaoAcao) {
+	
+	public Acao(String descricaoAcao) {
+		super();
 		this.descricaoAcao = descricaoAcao;
 	}
+
+
 
 	public String getDescricaoAcao() {
 		return descricaoAcao;
