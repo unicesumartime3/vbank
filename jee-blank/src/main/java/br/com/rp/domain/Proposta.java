@@ -6,6 +6,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -52,16 +54,31 @@ public class Proposta extends BaseEntity implements Serializable {
 	@Column(name = "dt_proposta", nullable = false)
 	private Date dataProposta;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tp_situacao", length = 20, nullable = false)
+	private SituacaoProposta situacaoProposta;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "usuarioanalise_id", referencedColumnName = "id", nullable = true)
 	private UsuarioFuncionario usuarioAnalise;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "motivorejeicao_id", referencedColumnName = "id", nullable = true)
 	private MotivoRejeicao motivoRejeicao;
 
 	public Proposta() {
 
+	}
+	
+	public Proposta( String nome, String cpf, String regiao, BigDecimal renda, Date dataProposta,
+			SituacaoProposta situacaoProposta) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.regiao = regiao;
+		this.renda = renda;
+		this.dataProposta = dataProposta;
+		this.situacaoProposta = situacaoProposta;
 	}
 
 	public String getCpf() {
@@ -102,6 +119,14 @@ public class Proposta extends BaseEntity implements Serializable {
 
 	public void setDataProposta(Date dataProposta) {
 		this.dataProposta = dataProposta;
+	}
+
+	public SituacaoProposta getSituacaoProposta() {
+		return situacaoProposta;
+	}
+
+	public void setSituacaoProposta(SituacaoProposta situacaoProposta) {
+		this.situacaoProposta = situacaoProposta;
 	}
 
 	public UsuarioFuncionario getUsuarioAnalise() {

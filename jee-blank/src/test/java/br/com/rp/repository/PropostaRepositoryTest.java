@@ -18,6 +18,7 @@ import br.com.rp.domain.Cargo;
 import br.com.rp.domain.Funcionario;
 import br.com.rp.domain.MotivoRejeicao;
 import br.com.rp.domain.Proposta;
+import br.com.rp.domain.SituacaoProposta;
 import br.com.rp.domain.UsuarioFuncionario;
 
 @Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
@@ -71,6 +72,7 @@ public class PropostaRepositoryTest extends AbstractTest{
 		proposta.setDataProposta(dataProposta);
 		proposta.setUsuarioAnalise(usuarioFuncionario);
 		proposta.setMotivoRejeicao(motivo);
+		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
 		propostaRepository.save(proposta);
 		Assert.assertNotNull(proposta.getId());
 	}
@@ -114,5 +116,11 @@ public class PropostaRepositoryTest extends AbstractTest{
 		proposta.setRenda(new BigDecimal(800.00));
 		propostaRepository.save(proposta);
 		Assert.assertEquals("Joaquim", propostaRepository.findById(100001L).getNome());
+	}
+	
+	@Test
+	@UsingDataSet("db/proposta.xml")
+	public void deveRetornarPropostaComStatusAberta(){
+		Assert.assertEquals(SituacaoProposta.ABERTA, propostaRepository.findById(100001L).getSituacaoProposta());
 	}
 }

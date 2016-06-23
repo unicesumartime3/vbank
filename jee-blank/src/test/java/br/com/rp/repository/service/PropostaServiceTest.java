@@ -18,6 +18,7 @@ import br.com.rp.domain.Cargo;
 import br.com.rp.domain.Funcionario;
 import br.com.rp.domain.MotivoRejeicao;
 import br.com.rp.domain.Proposta;
+import br.com.rp.domain.SituacaoProposta;
 import br.com.rp.domain.UsuarioFuncionario;
 import br.com.rp.services.CargoService;
 import br.com.rp.services.FuncionarioService;
@@ -76,6 +77,7 @@ public class PropostaServiceTest extends AbstractTest {
 		proposta.setDataProposta(dataProposta);
 		proposta.setUsuarioAnalise(usuarioFuncionario);
 		proposta.setMotivoRejeicao(motivo);
+		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
 		propostaService.save(proposta);
 		Assert.assertNotNull(proposta.getId());
 	}
@@ -165,5 +167,11 @@ public class PropostaServiceTest extends AbstractTest {
 	@UsingDataSet("db/proposta.xml")
 	public void deveRetornarDuasPropostas(){
 		Assert.assertEquals(2, propostaService.getAll().size());
+	}
+	
+	@Test
+	@UsingDataSet("db/proposta.xml")
+	public void deveRetornarPropostaComStatusAberta(){
+		Assert.assertEquals(SituacaoProposta.ABERTA, propostaService.findById(100001L).getSituacaoProposta());
 	}
 }

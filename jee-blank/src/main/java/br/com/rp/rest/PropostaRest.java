@@ -56,6 +56,14 @@ public class PropostaRest {
 		propostaResult.setNome(proposta.getNome());
 		propostaResult.setRegiao(proposta.getRegiao());
 		propostaResult.setRenda(proposta.getRenda());
+		propostaResult.setSituacaoProposta(proposta.getSituacaoProposta());
+
+		if (proposta.getMotivoRejeicao() != null) {
+			propostaResult.setMotivoRejeicao(proposta.getMotivoRejeicao());
+		}
+		if (proposta.getUsuarioAnalise() != null) {
+			propostaResult.setUsuarioAnalise(proposta.getUsuarioAnalise());
+		}
 		return propostaService.save(propostaResult);
 	}
 
@@ -70,10 +78,10 @@ public class PropostaRest {
 	public Proposta findById(@PathParam("id") Long id) {
 		return propostaService.findById(id);
 	}
-	
+
 	@GET
 	@Path("/getAll")
-	public List<Proposta> getAll(){
+	public List<Proposta> getAll() {
 		return propostaService.getAll();
 	}
 }

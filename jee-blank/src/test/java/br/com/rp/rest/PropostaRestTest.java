@@ -20,6 +20,7 @@ import org.junit.Test;
 
 import br.com.rp.AbstractTest;
 import br.com.rp.domain.Proposta;
+import br.com.rp.domain.SituacaoProposta;
 
 @Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class PropostaRestTest extends AbstractTest {
@@ -34,6 +35,7 @@ public class PropostaRestTest extends AbstractTest {
 		proposta.setNome("Rafael");
 		proposta.setRegiao("Nordeste");
 		proposta.setRenda(new BigDecimal(8000.00));
+		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
 
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/proposta/save");
@@ -61,6 +63,7 @@ public class PropostaRestTest extends AbstractTest {
 		proposta.setNome("Rafael");
 		proposta.setRegiao("Nordeste");
 		proposta.setRenda(new BigDecimal(8000.00));
+		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
 
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/proposta/update/100001");
