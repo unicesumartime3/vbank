@@ -90,7 +90,7 @@ public class PropostaRepositoryTest extends AbstractTest{
 	@Test
 	@UsingDataSet("db/proposta.xml")
 	public void deveCompararCPFProposta() {
-		Assert.assertEquals("09006848956", propostaRepository.findById(100001L).getCpf());
+		Assert.assertEquals("25283798143", propostaRepository.findById(100001L).getCpf());
 	}
 	
 	@Test
@@ -115,5 +115,4 @@ public class PropostaRepositoryTest extends AbstractTest{
 		propostaRepository.save(proposta);
 		Assert.assertEquals("Joaquim", propostaRepository.findById(100001L).getNome());
 	}
-
 }

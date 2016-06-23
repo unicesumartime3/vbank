@@ -160,4 +160,10 @@ public class PropostaServiceTest extends AbstractTest {
 	public void deveVerificarUltimosTrintaDiasNaoExistente() {
 		Assert.assertFalse(propostaService.isPropostaUltimosTrintaDias("25243794543"));
 	}
+	
+	@Test
+	@UsingDataSet("db/proposta.xml")
+	public void deveRetornarDuasPropostas(){
+		Assert.assertEquals(2, propostaService.getAll().size());
+	}
 }
