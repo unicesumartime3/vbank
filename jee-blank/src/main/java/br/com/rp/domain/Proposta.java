@@ -43,7 +43,10 @@ public class Proposta extends BaseEntity implements Serializable {
 
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
-
+	
+	@Column(name = "email", length = 200, nullable = false)
+	private String email;
+	
 	@Column(name = "regiao", length = 20, nullable = false)
 	private String regiao;
 
@@ -70,7 +73,7 @@ public class Proposta extends BaseEntity implements Serializable {
 
 	}
 	
-	public Proposta( String nome, String cpf, String regiao, BigDecimal renda, Date dataProposta,
+	public Proposta( String nome, String cpf,String email, String regiao, BigDecimal renda, Date dataProposta,
 			SituacaoProposta situacaoProposta) {
 		super();
 		this.cpf = cpf;
@@ -79,6 +82,7 @@ public class Proposta extends BaseEntity implements Serializable {
 		this.renda = renda;
 		this.dataProposta = dataProposta;
 		this.situacaoProposta = situacaoProposta;
+		this.email = email;
 	}
 
 	public String getCpf() {
@@ -103,6 +107,14 @@ public class Proposta extends BaseEntity implements Serializable {
 
 	public void setRegiao(String regiao) {
 		this.regiao = regiao;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public BigDecimal getRenda() {

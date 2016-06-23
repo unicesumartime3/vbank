@@ -78,10 +78,11 @@ public class PropostaServiceTest extends AbstractTest {
 		proposta.setUsuarioAnalise(usuarioFuncionario);
 		proposta.setMotivoRejeicao(motivo);
 		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
+		proposta.setEmail("jose@gmail.com");
 		propostaService.save(proposta);
 		Assert.assertNotNull(proposta.getId());
 	}
-
+	
 	@Test
 	@UsingDataSet("db/proposta.xml")
 	public void deveRetornarDoisRegistros() {

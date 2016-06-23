@@ -57,6 +57,7 @@ public class PropostaRest {
 		propostaResult.setRegiao(proposta.getRegiao());
 		propostaResult.setRenda(proposta.getRenda());
 		propostaResult.setSituacaoProposta(proposta.getSituacaoProposta());
+		propostaResult.setEmail(proposta.getEmail());
 
 		if (proposta.getMotivoRejeicao() != null) {
 			propostaResult.setMotivoRejeicao(proposta.getMotivoRejeicao());

@@ -73,6 +73,7 @@ public class PropostaRepositoryTest extends AbstractTest{
 		proposta.setUsuarioAnalise(usuarioFuncionario);
 		proposta.setMotivoRejeicao(motivo);
 		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
+		proposta.setEmail("jose@gmail.com");
 		propostaRepository.save(proposta);
 		Assert.assertNotNull(proposta.getId());
 	}

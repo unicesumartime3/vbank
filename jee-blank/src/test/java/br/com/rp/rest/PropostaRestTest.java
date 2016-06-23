@@ -36,6 +36,7 @@ public class PropostaRestTest extends AbstractTest {
 		proposta.setRegiao("Nordeste");
 		proposta.setRenda(new BigDecimal(8000.00));
 		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
+		proposta.setEmail("rafael@gmail.com");
 
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/proposta/save");
@@ -64,6 +65,7 @@ public class PropostaRestTest extends AbstractTest {
 		proposta.setRegiao("Nordeste");
 		proposta.setRenda(new BigDecimal(8000.00));
 		proposta.setSituacaoProposta(SituacaoProposta.ABERTA);
+		proposta.setEmail("rafael@gmail.com");
 
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/proposta/update/100001");
