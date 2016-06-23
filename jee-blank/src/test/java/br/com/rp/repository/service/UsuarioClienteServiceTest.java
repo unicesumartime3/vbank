@@ -42,6 +42,7 @@ public class UsuarioClienteServiceTest extends AbstractTest {
 		cliente.setCpf("08564856652");
 		cliente.setVlRenda(new BigDecimal(8006.00));
 		cliente.setConta(conta);
+		cliente.setEmail("flavia@gmail.com");
 		clienteService.save(cliente);
 
 		UsuarioCliente usuarioCliente = new UsuarioCliente();

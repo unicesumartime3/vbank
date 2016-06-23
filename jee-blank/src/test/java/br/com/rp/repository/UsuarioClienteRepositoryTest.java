@@ -40,6 +40,7 @@ public class UsuarioClienteRepositoryTest extends AbstractTest {
 		cliente.setCpf("08564856652");
 		cliente.setVlRenda(new BigDecimal(8006.00));
 		cliente.setConta(conta);
+		cliente.setEmail("flavia@gmail.com");
 		clienteRepository.save(cliente);
 
 		UsuarioCliente usuarioCliente = new UsuarioCliente();
