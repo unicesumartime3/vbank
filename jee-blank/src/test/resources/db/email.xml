@@ -2,6 +2,6 @@
 	<proposta id="100001" cpf="25283798143" nome="João" regiao="Sul" vl_renda="2000.00" dt_proposta="2016-06-20" email="joao@gmail.com" tp_situacao="ABERTA"/>
 	<proposta id="100002" cpf="25243798843" nome="Maria" regiao="Norte" vl_renda="5000.00" dt_proposta="2016-06-15" email="maria@gmail.com" tp_situacao="ABERTA"/>
 	    
-	<email id="100001" destinatario="email@gmail.com" assunto="Assunto Teste" tp_situacao="AGUARDANDO_ENVIO" remetente="email@gmail.com" descricao="Teste descricao email." dh_envio="2016-06-23" proposta_id="100001"/>
-	<email id="100002" destinatario="email@gmail.com" assunto="Assunto Teste2" tp_situacao="AGUARDANDO_ENVIO" remetente="email@gmail.com" descricao="Teste descricao email 2." dh_envio="2016-06-23" proposta_id="100002"/>
+	<email id="100001" destinatario="email@gmail.com" assunto="Assunto Teste" tp_situacao="AGUARDANDO_ENVIO" remetente="email@gmail.com" descricao="Teste descricao email." dh_envio="2016-06-23" proposta_id="100002"/>
+	<email id="100002" destinatario="email@gmail.com" assunto="Assunto Teste2" tp_situacao="AGUARDANDO_ENVIO" remetente="email@gmail.com" descricao="Teste descricao email 2." dh_envio="2016-06-23" proposta_id="100001"/>
 </dataset>

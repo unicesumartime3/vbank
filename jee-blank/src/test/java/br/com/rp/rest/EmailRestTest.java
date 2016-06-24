@@ -25,19 +25,19 @@ import br.com.rp.domain.SituacaoEmail;
 
 @Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class EmailRestTest extends AbstractTest {
-	
+
 	private static final String URL_BASE = "http://localhost:8080/vbank/api";
-	
+
 	@Test
 	@UsingDataSet("db/email.xml")
-	public void deveSalvarEmailComSucesso() throws ParseException{
+	public void deveSalvarEmailComSucesso() throws ParseException {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/proposta/findById/100001");
 		Response response = target.request().get();
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
 		Proposta proposta = response.readEntity(Proposta.class);
 		Assert.assertEquals("João", proposta.getNome());
-		
+
 		Email email = new Email();
 		email.setAssunto("Email para cliente");
 		email.setDescricao("Este email é para envio ao cliente.");
@@ -46,7 +46,7 @@ public class EmailRestTest extends AbstractTest {
 		email.setRemetente("serra@gmail.com");
 		email.setSituacao(SituacaoEmail.AGUARDANDO_ENVIO);
 		email.setProposta(proposta);
-		
+
 		client = ClientBuilder.newClient();
 		target = client.target(URL_BASE + "/email/save");
 		response = target.request().accept(MediaType.APPLICATION_JSON)
@@ -56,7 +56,7 @@ public class EmailRestTest extends AbstractTest {
 		Assert.assertNotNull(emailResponse);
 		Assert.assertEquals("serra@gmail.com", emailResponse.getRemetente());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/email.xml")
 	public void deveAlterarEmailComSucesso() throws ParseException {
@@ -82,10 +82,10 @@ public class EmailRestTest extends AbstractTest {
 		Assert.assertNotNull(emailResult);
 		Assert.assertEquals("flavia@email.com", emailResult.getDestinatario());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/email.xml")
-	public void deveRemoverEmailComSucesso(){
+	public void deveRemoverEmailComSucesso() {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/email/remove/100001");
 		Response response = target.request().delete();
@@ -97,7 +97,7 @@ public class EmailRestTest extends AbstractTest {
 		Email email = response.readEntity(Email.class);
 		Assert.assertNull(email);
 	}
-	
+
 	@Test
 	@UsingDataSet("db/email.xml")
 	public void deveRetornarEmail() {
@@ -108,7 +108,7 @@ public class EmailRestTest extends AbstractTest {
 		Email email = response.readEntity(Email.class);
 		Assert.assertNotNull(email);
 	}
-	
+
 	@Test
 	@UsingDataSet("db/email.xml")
 	public void deveRetornaDoisEmails() {
@@ -120,4 +120,14 @@ public class EmailRestTest extends AbstractTest {
 		Assert.assertEquals(2, emails.size());
 	}
 
+	@Test
+	@UsingDataSet("db/email.xml")
+	public void deveEmailPorProposta() {
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target(URL_BASE + "/email/findByProposta/100001");
+		Response response = target.request().get();
+		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
+		Email email = response.readEntity(Email.class);
+		Assert.assertEquals(new Long(100002), email.getId());
+	}
 }

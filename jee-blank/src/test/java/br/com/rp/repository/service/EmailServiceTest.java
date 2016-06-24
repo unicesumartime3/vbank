@@ -69,4 +69,10 @@ public class EmailServiceTest extends AbstractTest {
 		emailService.save(email);
 		Assert.assertEquals("Teste de descrição de email", emailService.findById(100001L).getDescricao());
 	}
+	
+	@Test
+	@UsingDataSet("db/email.xml")
+	public void deveRetornarEmailPorProposta() {
+		Assert.assertEquals(new Long(100002), emailService.findByProposta(100001L).getId());
+	}
 }

@@ -61,4 +61,10 @@ public class EmailRest {
 	public List<Email> getAll() {
 		return emailService.getAll();
 	}
+	
+	@GET
+	@Path("/findByProposta/{idProposta}")
+	public Email findByProposta(@PathParam("idProposta") Long idProposta){
+		return emailService.findByProposta(idProposta);
+	}
 }
