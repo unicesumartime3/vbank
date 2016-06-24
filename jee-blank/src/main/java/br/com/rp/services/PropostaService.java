@@ -3,6 +3,7 @@ package br.com.rp.services;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -11,11 +12,14 @@ import javax.persistence.PersistenceContext;
 
 import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
+import br.com.rp.domain.Cliente;
+import br.com.rp.domain.Conta;
 import br.com.rp.domain.Email;
 import br.com.rp.domain.MotivoRejeicao;
 import br.com.rp.domain.Proposta;
 import br.com.rp.domain.SituacaoEmail;
 import br.com.rp.domain.SituacaoProposta;
+import br.com.rp.domain.UsuarioCliente;
 import br.com.rp.domain.UsuarioFuncionario;
 import br.com.rp.repository.PropostaRepository;
 
@@ -44,13 +48,22 @@ public class PropostaService {
 	private PropostaRepository propostaRepository;
 
 	@EJB
+	private EmailService emailService;
+
+	@EJB
 	private MotivoRejeicaoService motivoRejeicaoService;
 
 	@EJB
 	private UsuarioFuncionarioService usuarioFuncionarioService;
 
 	@EJB
-	private EmailService emailService;
+	private ContaService contaService;
+
+	@EJB
+	private UsuarioClienteService usuarioClienteService;
+
+	@EJB
+	private ClienteService clienteService;
 
 	public List<Proposta> getAll() {
 		return propostaRepository.getAll();
@@ -95,8 +108,46 @@ public class PropostaService {
 		return true;
 	}
 
-	public Proposta rejeitarProposta(Long id, String mensagemRejeicao, Long idUsuarioAnalise) {
-		Proposta proposta = findById(id);
+	public Proposta aprovarProposta(Long idProposta, Long idUsuarioAnalisou) {
+		Proposta proposta = propostaRepository.findById(idProposta);
+		if (proposta != null) {
+			UsuarioFuncionario usuarioFuncionarioAnalise = usuarioFuncionarioService.findById(idUsuarioAnalisou);
+			if (usuarioFuncionarioAnalise != null) {
+				proposta.setUsuarioAnalise(usuarioFuncionarioAnalise);
+				proposta.setSituacaoProposta(SituacaoProposta.APROVADA);
+				save(proposta);
+
+				Cliente cliente = clienteService.save(new Cliente(proposta.getNome(), proposta.getCpf(),
+						proposta.getEmail(), proposta.getRenda(), contaService
+								.save(new Conta(new Integer(new Random().nextInt(9999999)).toString(), true, false))));
+
+				usuarioClienteService.save(new UsuarioCliente(cliente.getNome(), cliente.getConta().getNrConta(),
+						new Integer(new Random().nextInt(9999999)).toString(), cliente));
+
+				Email email = new Email();
+				email.setAssunto("Proposta de abertura de conta Aprovada");
+				email.setDescricao("Prezada(a) Sr(a) " + proposta.getNome() + ".\n\n"
+						+ "Informamos que o sua proposta de abertura de conta foi aprovada.\n\n"
+						+ "O número da sua conta e login é: " + cliente.getConta().getNrConta()
+						+ "\n\nPor favor altere sua senha acessado o seguinte endereço: \n\n" + "http://vbank.com.br/"
+						+ cliente.getNome() + "/alterarSenha \n\n" + "Atenciosamente,\nEquipe Vbank");
+				email.setDestinatario(cliente.getEmail());
+				email.setRemetente(usuarioFuncionarioAnalise.getFuncionario().getEmail());
+				email.setSituacao(SituacaoEmail.AGUARDANDO_ENVIO);
+				email.setDhEnvio(Calendar.getInstance().getTime());
+				email.setProposta(proposta);
+				email.setCliente(cliente);
+				emailService.save(email);
+
+				return proposta;
+			} else
+				throw new RuntimeException("O Usuário de analise não existe.");
+		} else
+			throw new RuntimeException("A Proposta não existe.");
+	}
+
+	public Proposta rejeitarProposta(Long idProposta, String mensagemRejeicao, Long idUsuarioAnalise) {
+		Proposta proposta = findById(idProposta);
 		if (proposta != null) {
 			UsuarioFuncionario usuarioFuncionario = usuarioFuncionarioService.findById(idUsuarioAnalise);
 			if (usuarioFuncionario != null) {
@@ -119,6 +170,7 @@ public class PropostaService {
 				email.setRemetente(usuarioFuncionario.getFuncionario().getEmail());
 				email.setSituacao(SituacaoEmail.AGUARDANDO_ENVIO);
 				email.setDhEnvio(Calendar.getInstance().getTime());
+				email.setProposta(proposta);
 				emailService.save(email);
 
 				return proposta;

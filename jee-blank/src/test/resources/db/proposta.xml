@@ -1,16 +1,14 @@
 <dataset>
-	<motivorejeicao id="100001" ds_motivo="Renda insuficiente"/>
-	<motivorejeicao id="100002" ds_motivo="Número da conta inválido"/>
 	
 	<cargo id="100001" descricao_cargo="Gerente de Vendas"/>
 	<cargo id="100002" descricao_cargo="Gerente de Compras"/>
 	
-	<funcionario id="100001" nome="Rafael Suzin" email="rafael@gmail.com" cpf="09006848956" id_cargo="100001"/>
-	<funcionario id="100002" nome="Julio Serra" email="julio@gmail.com" cpf="09005548625" id_cargo="100002"/>
+	<funcionario id="100001" nome="Rafael Suzin" cpf="09006848956" email="rafael@gmail.com"  id_cargo="100001"/>
+	<funcionario id="100002" nome="Julio Serra" cpf="09005548625" email="julio@gmail.com" id_cargo="100002"/>
 
 	<usuario id="100001" login="rafael" nome="Rafael Suzin" senha="123456" funcionario_id="100001" tp_usuario="funcionario"/>
 	<usuario id="100002" login="julio" nome="Julio Serra" senha="123456" funcionario_id="100002" tp_usuario="funcionario"/>
-	
-	<proposta id="100001" cpf="25283798143" nome="João" regiao="Sul" vl_renda="2000.00" dt_proposta="2016-06-20" email="joao@gmail.com" usuarioanalise_id="100001" motivorejeicao_id="100001" tp_situacao="ABERTA"/>
-	<proposta id="100002" cpf="25243798843" nome="Maria" regiao="Norte" vl_renda="5000.00" dt_proposta="2016-06-15" email="maria@gmail.com" usuarioanalise_id="100002" motivorejeicao_id="100002" tp_situacao="ABERTA"/>
+
+	<proposta id="100001" cpf="25283798143" nome="João" regiao="Sul" vl_renda="2000.00" dt_proposta="2016-06-20" email="joao@gmail.com" tp_situacao="ABERTA"/>
+	<proposta id="100002" cpf="25243798843" nome="Maria" regiao="Norte" vl_renda="5000.00" dt_proposta="2016-06-15" email="maria@gmail.com" tp_situacao="ABERTA" />
 </dataset>

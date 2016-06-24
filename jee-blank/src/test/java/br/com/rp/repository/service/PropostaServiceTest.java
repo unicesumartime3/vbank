@@ -21,6 +21,9 @@ import br.com.rp.domain.Proposta;
 import br.com.rp.domain.SituacaoProposta;
 import br.com.rp.domain.UsuarioFuncionario;
 import br.com.rp.services.CargoService;
+import br.com.rp.services.ClienteService;
+import br.com.rp.services.ContaService;
+import br.com.rp.services.EmailService;
 import br.com.rp.services.FuncionarioService;
 import br.com.rp.services.MotivoRejeicaoService;
 import br.com.rp.services.PropostaService;
@@ -44,6 +47,15 @@ public class PropostaServiceTest extends AbstractTest {
 	@EJB
 	private PropostaService propostaService;
 
+	@EJB
+	private EmailService emailService;
+
+	@EJB
+	private ClienteService clienteService;
+
+	@EJB
+	private ContaService contaService;
+
 	@Test
 	public void deveInserirPropostaComSucesso() throws ParseException {
 		MotivoRejeicao motivo = new MotivoRejeicao();
@@ -56,6 +68,7 @@ public class PropostaServiceTest extends AbstractTest {
 
 		Funcionario funcionario = new Funcionario();
 		funcionario.setNome("Rafael Suzin");
+		funcionario.setEmail("rafael@gmail.com");
 		funcionario.setCpf("08564856652");
 		funcionario.setCargo(cargo);
 		funcionarioService.save(funcionario);
@@ -82,7 +95,7 @@ public class PropostaServiceTest extends AbstractTest {
 		propostaService.save(proposta);
 		Assert.assertNotNull(proposta.getId());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/proposta.xml")
 	public void deveRetornarDoisRegistros() {
@@ -163,16 +176,58 @@ public class PropostaServiceTest extends AbstractTest {
 	public void deveVerificarUltimosTrintaDiasNaoExistente() {
 		Assert.assertFalse(propostaService.isPropostaUltimosTrintaDias("25243794543"));
 	}
-	
+
 	@Test
 	@UsingDataSet("db/proposta.xml")
-	public void deveRetornarDuasPropostas(){
+	public void deveRetornarDuasPropostas() {
 		Assert.assertEquals(2, propostaService.getAll().size());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/proposta.xml")
-	public void deveRetornarPropostaComStatusAberta(){
+	public void deveRetornarPropostaComStatusAberta() {
 		Assert.assertEquals(SituacaoProposta.ABERTA, propostaService.findById(100001L).getSituacaoProposta());
+	}
+
+	@Test
+	@UsingDataSet(value = { "db/proposta.xml" })
+	public void deveRejeitarPropostaComSucesso() {
+		Proposta prop = propostaService.findById(100001L);
+		Assert.assertEquals(SituacaoProposta.ABERTA, prop.getSituacaoProposta());
+		Assert.assertTrue(emailService.getAll().isEmpty());
+		Proposta proposta = propostaService.rejeitarProposta(100001L, "Renda insuficiente para abertura de cadastro",
+				100002L);
+		Assert.assertEquals(SituacaoProposta.REJEITADA, proposta.getSituacaoProposta());
+		Assert.assertEquals("Renda insuficiente para abertura de cadastro", proposta.getMotivoRejeicao().getDsMotivo());
+		Assert.assertEquals(new Long(100002), proposta.getUsuarioAnalise().getId());
+		Assert.assertEquals(1, emailService.getAll().size());
+		propostaService.remove(proposta.getId());
+		/*
+		 * Foi implementado um remove do email adicionado, pois o h2 tenta
+		 * remover o registro automáticamente temina a execução de cada método,
+		 * e a proposta não podia ser excluída pois estava vinculada a um email.
+		 */
+		emailService.remove(emailService.findByProposta(proposta.getId()).getId());;
+	}
+
+	@Test
+	@UsingDataSet(value = { "db/proposta.xml" })
+	public void deveAprovarPropostaComSucesso() {
+		Proposta prop = propostaService.findById(100001L);
+		Assert.assertNotNull(prop);
+		Assert.assertNull(prop.getMotivoRejeicao());
+		Assert.assertNull(prop.getUsuarioAnalise());
+		Assert.assertEquals(SituacaoProposta.ABERTA, prop.getSituacaoProposta());
+		Proposta proposta = propostaService.aprovarProposta(100001L, 100002L);
+		Assert.assertEquals(SituacaoProposta.APROVADA, proposta.getSituacaoProposta());
+		Assert.assertEquals(new Long(100002), proposta.getUsuarioAnalise().getId());
+		Assert.assertEquals(1, clienteService.getAll().size());
+		Assert.assertEquals(1, contaService.getAll().size());
+		/*
+		 * Foi implementado um remove do email adicionado, pois o h2 tenta
+		 * remover o registro automáticamente temina a execução de cada método,
+		 * e a proposta não podia ser excluída pois estava vinculada a um email.
+		 */
+		emailService.remove(emailService.findByProposta(proposta.getId()).getId());;
 	}
 }

@@ -52,6 +52,7 @@ public class PropostaRepositoryTest extends AbstractTest{
 		Funcionario funcionario = new Funcionario();
 		funcionario.setNome("Rafael Suzin");
 		funcionario.setCpf("08564856652");
+		funcionario.setEmail("rafael@gmail.com");
 		funcionario.setCargo(cargo);
 		funcionarioRepository.save(funcionario);
 
