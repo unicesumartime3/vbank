@@ -4,21 +4,32 @@ import java.util.Calendar;
 
 import javax.ejb.EJB;
 
+import org.jboss.arquillian.persistence.Cleanup;
+import org.jboss.arquillian.persistence.CleanupStrategy;
 import org.jboss.arquillian.persistence.UsingDataSet;
 import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.rp.AbstractTest;
 import br.com.rp.domain.Email;
+import br.com.rp.domain.Proposta;
 import br.com.rp.domain.SituacaoEmail;
 
+@Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class EmailRepositoryTest extends AbstractTest {
 	
 	@EJB
 	private EmailRepository emailRepository;
+	
+	@EJB
+	private PropostaRepository propostaRepository;
 
 	@Test
+	@UsingDataSet("db/email.xml")
 	public void deveInserirEmailComSucesso() {
+		Proposta proposta = propostaRepository.findById(100001L);
+		Assert.assertEquals("João", proposta.getNome());
+		
 		Email email = new Email();
 		email.setAssunto("Email para cliente");
 		email.setDescricao("Este email é para envio ao cliente.");
@@ -26,6 +37,7 @@ public class EmailRepositoryTest extends AbstractTest {
 		email.setDhEnvio(Calendar.getInstance().getTime());
 		email.setRemetente("email@gmail.com");
 		email.setSituacao(SituacaoEmail.AGUARDANDO_ENVIO);
+		email.setProposta(proposta);
 		emailRepository.save(email);
 		Assert.assertNotNull(email.getId());
 	}
