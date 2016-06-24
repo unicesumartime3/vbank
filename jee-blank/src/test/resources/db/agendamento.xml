@@ -1,0 +1,7 @@
+<dataset>
+	<cliente id="100001" nome="Julio Serra" cpf="08565895685" vl_renda="8500.00" email="julio@gmail.com"/>
+	<cliente id="100002" nome="Perola Araujo" cpf="20192073206" vl_renda="1500.00" email="perola@gmail.com"/>
+	
+	<agendamento id="100001" dt_agendamento="2016-06-20" cliente_id="100001"/>
+	<agendamento id="100002" dt_agendamento="2016-05-20" cliente_id="100002"/>	
+</dataset>
