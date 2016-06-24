@@ -23,7 +23,7 @@ public class UsuarioFuncionarioRepositoryTest extends AbstractTest {
 	private CargoRepository cargoRepository;
 
 	@Test
-	public void deveInserirCargoComSucesso() {
+	public void deveInserirUsuarioFuncionarioComSucesso() {
 		Cargo cargo = new Cargo();
 		cargo.setDescricaoCargo("Gerente de vendas");
 		cargoRepository.save(cargo);
@@ -31,6 +31,7 @@ public class UsuarioFuncionarioRepositoryTest extends AbstractTest {
 		
 		Funcionario funcionario = new Funcionario();
 		funcionario.setNome("Rafael Suzin");
+		funcionario.setEmail("rafael@gmail.com");
 		funcionario.setCpf("08564856652");
 		funcionario.setCargo(cargo);
 		funcionarioRepository.save(funcionario);
