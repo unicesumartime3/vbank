@@ -3,19 +3,45 @@ package br.com.rp.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "email")
 public class Email extends BaseEntity implements Serializable{
 
+	@Column(name = "remetente", length = 50, nullable = false)
 	private String remetente;
+	
+	@Column(name = "destinatario", length = 50, nullable = false)
 	private String destinatario;
+	
+	@Column(name = "assunto", length = 200, nullable = false)
 	private String assunto;
+	
+	@Lob
+	@Column(name = "descricao", nullable = false)
 	private String descricao;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cliente_id", referencedColumnName="id", nullable = true)
 	private Cliente cliente;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "dh_envio", nullable = false)
 	private Date dhEnvio;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tp_situacao", length = 30, nullable = false)
 	private SituacaoEmail situacao;
 	
 	public Email() {

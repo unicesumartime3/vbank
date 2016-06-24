@@ -34,6 +34,7 @@ public class FuncionarioRestTest extends AbstractTest {
 
 		Funcionario funcionarioParan = new Funcionario();
 		funcionarioParan.setCpf("21717048455");
+		funcionarioParan.setEmail("julio@gmail.com");
 		funcionarioParan.setNome("Julio Serra");
 		funcionarioParan.setCargo(cargo);
 

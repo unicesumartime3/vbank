@@ -14,6 +14,7 @@ import br.com.caelum.stella.validation.InvalidStateException;
 import br.com.rp.domain.Email;
 import br.com.rp.domain.MotivoRejeicao;
 import br.com.rp.domain.Proposta;
+import br.com.rp.domain.SituacaoEmail;
 import br.com.rp.domain.SituacaoProposta;
 import br.com.rp.domain.UsuarioFuncionario;
 import br.com.rp.repository.PropostaRepository;
@@ -47,6 +48,9 @@ public class PropostaService {
 
 	@EJB
 	private UsuarioFuncionarioService usuarioFuncionarioService;
+
+	@EJB
+	private EmailService emailService;
 
 	public List<Proposta> getAll() {
 		return propostaRepository.getAll();
@@ -104,15 +108,27 @@ public class PropostaService {
 				proposta.setMotivoRejeicao(motivoRejeicao);
 				proposta.setUsuarioAnalise(usuarioFuncionario);
 				save(proposta);
-				
+
 				Email email = new Email();
+				email.setAssunto("Proposta de abertura de conta rejeitada");
+				email.setDescricao("Prezada(a) Sr(a) " + proposta.getNome() + ".\n\n"
+						+ "Informamos que o sua proposta de abertura de conta foi rejeitada pelo seguinte motivo: "
+						+ mensagemRejeicao + ".\n\n"
+						+ "Aguarde 30 dias para realizar uma nova proposta.\n\nAtenciosamente, \nEquipe VBank");
+				email.setDestinatario(proposta.getEmail());
+				email.setRemetente(usuarioFuncionario.getFuncionario().getEmail());
+				email.setSituacao(SituacaoEmail.AGUARDANDO_ENVIO);
+				email.setDhEnvio(Calendar.getInstance().getTime());
+				emailService.save(email);
+
+				return proposta;
+
 			} else
 				throw new RuntimeException("O Usuário de analise não existe.");
 
 		} else
 			throw new RuntimeException("A Proposta não existe.");
 
-		return proposta;
 	}
 
 }

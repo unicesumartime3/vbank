@@ -38,6 +38,9 @@ public class Funcionario extends BaseEntity implements Serializable {
 	@Column(name = "cpf", length = 14, nullable = false)
 	private String cpf;
 
+	@Column(name = "email", length = 200, nullable = false)
+	private String email;
+	
 	/*
 	 * Cargo do funcionário.
 	 */
@@ -49,11 +52,12 @@ public class Funcionario extends BaseEntity implements Serializable {
 
 	}
 
-	public Funcionario(String nome, String cpf, Cargo cargo) {
+	public Funcionario(String nome, String email, String cpf, Cargo cargo) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cargo = cargo;
+		this.email = email;
 	}
 
 	public String getNome() {
@@ -74,6 +78,14 @@ public class Funcionario extends BaseEntity implements Serializable {
 
 	public Cargo getCargo() {
 		return cargo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setCargo(Cargo cargo) {

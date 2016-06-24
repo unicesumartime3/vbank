@@ -1,0 +1,4 @@
+<dataset>
+	<email id="100001" destinatario="email@gmail.com" assunto="Assunto Teste" tp_situacao="AGUARDANDO_ENVIO" remetente="email@gmail.com" descricao="Teste descricao email." dh_envio="2016-06-23"/>
+	<email id="100002" destinatario="email@gmail.com" assunto="Assunto Teste2" tp_situacao="AGUARDANDO_ENVIO" remetente="email@gmail.com" descricao="Teste descricao email 2." dh_envio="2016-06-23"/>
+</dataset>
