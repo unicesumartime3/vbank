@@ -29,6 +29,22 @@ import br.com.rp.services.MotivoRejeicaoService;
 import br.com.rp.services.PropostaService;
 import br.com.rp.services.UsuarioFuncionarioService;
 
+/**
+ * 
+ * @author Christian Marchiori
+ * @email cmxk@live.com
+ *
+ * @author Flávia Ferreira
+ * @email flaviahferreirah@gmail.com
+ *
+ * @author Júlio Serra
+ * @email julioserraaraujo@gmail.com 
+ * 
+ * @author Rafael Suzin
+ * @email rafaelsuzin1@gmail.com
+ *
+ */
+
 @Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class PropostaServiceTest extends AbstractTest {
 
@@ -193,7 +209,10 @@ public class PropostaServiceTest extends AbstractTest {
 	@UsingDataSet(value = { "db/proposta.xml" })
 	public void deveRejeitarPropostaComSucesso() {
 		Proposta prop = propostaService.findById(100001L);
+		UsuarioFuncionario usuarioFuncionario = usuarioFuncionarioService.findById(100002L);
 		Assert.assertEquals(SituacaoProposta.ABERTA, prop.getSituacaoProposta());
+		Assert.assertEquals("unicesumartime3@gmail.com", prop.getEmail());
+		Assert.assertEquals("javaeetime3envemail@gmail.com", usuarioFuncionario.getFuncionario().getEmail());
 		Assert.assertTrue(emailService.getAll().isEmpty());
 		Proposta proposta = propostaService.rejeitarProposta(100001L, "Renda insuficiente para abertura de cadastro",
 				100002L);
@@ -214,10 +233,13 @@ public class PropostaServiceTest extends AbstractTest {
 	@UsingDataSet(value = { "db/proposta.xml" })
 	public void deveAprovarPropostaComSucesso() {
 		Proposta prop = propostaService.findById(100001L);
+		UsuarioFuncionario usuarioFuncionario = usuarioFuncionarioService.findById(100002L);
 		Assert.assertNotNull(prop);
 		Assert.assertNull(prop.getMotivoRejeicao());
 		Assert.assertNull(prop.getUsuarioAnalise());
 		Assert.assertEquals(SituacaoProposta.ABERTA, prop.getSituacaoProposta());
+		Assert.assertEquals("unicesumartime3@gmail.com", prop.getEmail());
+		Assert.assertEquals("javaeetime3envemail@gmail.com", usuarioFuncionario.getFuncionario().getEmail());
 		Proposta proposta = propostaService.aprovarProposta(100001L, 100002L);
 		Assert.assertEquals(SituacaoProposta.APROVADA, proposta.getSituacaoProposta());
 		Assert.assertEquals(new Long(100002), proposta.getUsuarioAnalise().getId());

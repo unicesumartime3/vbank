@@ -138,7 +138,8 @@ public class PropostaService {
 				email.setProposta(proposta);
 				email.setCliente(cliente);
 				emailService.save(email);
-
+				emailService.enviarEmail(email);
+				
 				return proposta;
 			} else
 				throw new RuntimeException("O Usuário de analise não existe.");
@@ -172,7 +173,7 @@ public class PropostaService {
 				email.setDhEnvio(Calendar.getInstance().getTime());
 				email.setProposta(proposta);
 				emailService.save(email);
-
+				emailService.enviarEmail(email);
 				return proposta;
 
 			} else
