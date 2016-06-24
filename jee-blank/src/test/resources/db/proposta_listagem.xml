@@ -2,5 +2,5 @@
 	<proposta id="100001" cpf="25283798143" nome="João" regiao="Sul" vl_renda="2000.00" email="joao@gmail.com" dt_proposta="2016-06-20" tp_situacao="ABERTA"/>
 	<proposta id="100002" cpf="25243798843" nome="Maria" regiao="Norte" vl_renda="5000.00" email="maria@gmail.com" dt_proposta="2016-06-15" tp_situacao="ABERTA"/>
 	<proposta id="100003" cpf="25243798843" nome="Flavia" regiao="Sul" vl_renda="5000.00" email="flavia@gmail.com" dt_proposta="2016-06-15" tp_situacao="ABERTA"/>
-	<proposta id="100004" cpf="25243798843" nome="Chrinstian" regiao="Nordeste" vl_renda="5000.00" email="chistian@gmail.com" dt_proposta="2016-06-15" tp_situacao="ABERTA"/>
+	<proposta id="100004" cpf="25243798843" nome="Chrinstian" regiao="Sul" vl_renda="5000.00" email="chistian@gmail.com" dt_proposta="2016-06-15" tp_situacao="ABERTA"/>
 </dataset>

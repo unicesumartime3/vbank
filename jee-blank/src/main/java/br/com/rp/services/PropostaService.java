@@ -139,7 +139,7 @@ public class PropostaService {
 				email.setCliente(cliente);
 				emailService.save(email);
 				emailService.enviarEmail(email);
-				
+
 				return proposta;
 			} else
 				throw new RuntimeException("O Usuário de analise não existe.");
@@ -182,6 +182,13 @@ public class PropostaService {
 		} else
 			throw new RuntimeException("A Proposta não existe.");
 
+	}
+
+	public List<Proposta> findByRegiao(String regiao) {
+		return em
+				.createQuery("from " + Proposta.class.getSimpleName() + " where regiao like '%" + regiao
+						+ "%' and situacaoProposta = '" + SituacaoProposta.ABERTA + "'", Proposta.class)
+				.getResultList();
 	}
 
 }

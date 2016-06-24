@@ -252,4 +252,10 @@ public class PropostaServiceTest extends AbstractTest {
 		 */
 		emailService.remove(emailService.findByProposta(proposta.getId()).getId());;
 	}
+	
+	@Test
+	@UsingDataSet(value = { "db/proposta.xml" })
+	public void deveRetornarDuasPropostasPorRegiao(){
+		Assert.assertEquals(2, propostaService.findByRegiao("Norte").size());
+	}
 }

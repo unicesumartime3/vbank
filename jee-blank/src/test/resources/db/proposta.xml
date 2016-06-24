@@ -9,6 +9,6 @@
 	<usuario id="100001" login="rafael" nome="Rafael Suzin" senha="123456" funcionario_id="100001" tp_usuario="funcionario"/>
 	<usuario id="100002" login="julio" nome="Julio Serra" senha="123456" funcionario_id="100002" tp_usuario="funcionario"/>
 
-	<proposta id="100001" cpf="25283798143" nome="Unicesumar Time 3" regiao="Sul" vl_renda="2000.00" dt_proposta="2016-06-20" email="unicesumartime3@gmail.com" tp_situacao="ABERTA"/>
+	<proposta id="100001" cpf="25283798143" nome="Unicesumar Time 3" regiao="Norte" vl_renda="2000.00" dt_proposta="2016-06-20" email="unicesumartime3@gmail.com" tp_situacao="ABERTA"/>
 	<proposta id="100002" cpf="25243798843" nome="Maria" regiao="Norte" vl_renda="5000.00" dt_proposta="2016-06-15" email="unicesumartime3@gmail.com" tp_situacao="ABERTA" />
 </dataset>

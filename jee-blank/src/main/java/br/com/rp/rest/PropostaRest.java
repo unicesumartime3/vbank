@@ -100,5 +100,11 @@ public class PropostaRest {
 			@PathParam("idUsuarioAnalise") Long idUsuarioAnalise) {
 		return propostaService.aprovarProposta(idProposta, idUsuarioAnalise);
 	}
+	
+	@GET
+	@Path("/findByRegiao/{regiao}")
+	public List<Proposta> getPropostasRegiao(@PathParam("regiao") String regiao){
+		return propostaService.findByRegiao(regiao);
+	}
 
 }

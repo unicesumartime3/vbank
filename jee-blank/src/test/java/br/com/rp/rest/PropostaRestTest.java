@@ -60,7 +60,7 @@ public class PropostaRestTest extends AbstractTest {
 		Response response2 = target2.request().get();
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response2.getStatus()));
 		Proposta proposta2 = response2.readEntity(Proposta.class);
-		Assert.assertEquals("João", proposta2.getNome());
+		Assert.assertEquals("Unicesumar Time 3", proposta2.getNome());
 
 		Proposta proposta = new Proposta();
 		proposta.setCpf("25283798143");
@@ -260,5 +260,16 @@ public class PropostaRestTest extends AbstractTest {
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
 		List<Proposta> propostas = (List<Proposta>) response.readEntity(List.class);
 		Assert.assertEquals(4, propostas.size());
+	}
+	
+	@Test
+	@UsingDataSet("db/proposta_listagem.xml")
+	public void deveRetornarDuasPropostasPorRegiao(){
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target(URL_BASE + "/proposta/findByRegiao/Sul");
+		Response response = target.request().get();
+		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
+		List<Proposta> propostas = (List<Proposta>) response.readEntity(List.class);
+		Assert.assertEquals(3, propostas.size());
 	}
 }
