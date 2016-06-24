@@ -47,6 +47,7 @@ public class UsuarioClienteServiceTest extends AbstractTest {
 
 		UsuarioCliente usuarioCliente = new UsuarioCliente();
 		usuarioCliente.setNome("Rafael Suzin");
+		usuarioCliente.setLogin("rafael");
 		usuarioCliente.setSenha("123456");
 		usuarioCliente.setCliente(cliente);
 		usuarioClienteService.save(usuarioCliente);

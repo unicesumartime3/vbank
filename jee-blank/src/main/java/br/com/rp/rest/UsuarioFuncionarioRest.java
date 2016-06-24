@@ -13,15 +13,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.rp.domain.Funcionario;
 import br.com.rp.domain.UsuarioFuncionario;
-import br.com.rp.services.FuncionarioService;
 import br.com.rp.services.UsuarioFuncionarioService;
 
 @Path("/usuario/funcionario")
 @Produces("application/json")
 public class UsuarioFuncionarioRest {
-	
+
 	@EJB
 	private UsuarioFuncionarioService usuarioFuncionarioService;
 
@@ -30,7 +28,7 @@ public class UsuarioFuncionarioRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/save")
 	public UsuarioFuncionario save(UsuarioFuncionario usuarioFuncionario) {
-			return usuarioFuncionarioService.save(usuarioFuncionario);
+		return usuarioFuncionarioService.save(usuarioFuncionario);
 	}
 
 	@PUT
@@ -41,7 +39,7 @@ public class UsuarioFuncionarioRest {
 		usuarioFuncionarioResult.setLogin(usuarioFuncionario.getLogin());
 		usuarioFuncionarioResult.setSenha(usuarioFuncionario.getSenha());
 		usuarioFuncionarioResult.setFuncionario(usuarioFuncionario.getFuncionario());
-		
+
 		return usuarioFuncionarioService.save(usuarioFuncionarioResult);
 	}
 

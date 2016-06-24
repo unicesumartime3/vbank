@@ -47,6 +47,7 @@ public class UsuarioClienteRepositoryTest extends AbstractTest {
 		usuarioCliente.setNome("Rafael Suzin");
 		usuarioCliente.setSenha("123456");
 		usuarioCliente.setCliente(cliente);
+		usuarioCliente.setLogin("rafael");
 		usuarioClienteRepository.save(usuarioCliente);
 		Assert.assertNotNull(usuarioCliente.getId());
 	}

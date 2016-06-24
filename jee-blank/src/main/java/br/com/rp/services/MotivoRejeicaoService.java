@@ -5,7 +5,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import br.com.rp.domain.Conta;
 import br.com.rp.domain.MotivoRejeicao;
 import br.com.rp.repository.MotivoRejeicaoRepository;
 
@@ -18,7 +17,7 @@ import br.com.rp.repository.MotivoRejeicaoRepository;
  * @email flaviahferreirah@gmail.com
  *
  * @author Júlio Serra
- * @email julioserraaraujo@gmail.com 
+ * @email julioserraaraujo@gmail.com
  * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com
@@ -30,20 +29,20 @@ public class MotivoRejeicaoService {
 
 	@EJB
 	private MotivoRejeicaoRepository motivoRejeicaoRepository;
-	
+
 	public List<MotivoRejeicao> getAll() {
 		return motivoRejeicaoRepository.getAll();
 	}
-	
-	public MotivoRejeicao save(MotivoRejeicao motivo){
+
+	public MotivoRejeicao save(MotivoRejeicao motivo) {
 		return motivoRejeicaoRepository.save(motivo);
 	}
-	
-	public MotivoRejeicao findById(Long id){
+
+	public MotivoRejeicao findById(Long id) {
 		return motivoRejeicaoRepository.findById(id);
 	}
-	
-	public void remove(Long id){
+
+	public void remove(Long id) {
 		motivoRejeicaoRepository.remove(id);
 	}
 }

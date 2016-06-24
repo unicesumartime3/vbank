@@ -43,8 +43,8 @@ public class UsuarioCliente extends Usuario {
 		return cliente;
 	}
 
-	public UsuarioCliente(String nome, String senha, Cliente cliente) {
-		super(nome, senha);
+	public UsuarioCliente(String nome, String login, String senha, Cliente cliente) {
+		super(nome, login, senha);
 		this.cliente = cliente;
 	}
 

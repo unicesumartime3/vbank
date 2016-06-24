@@ -1,4 +1,4 @@
- package br.com.rp.rest;
+package br.com.rp.rest;
 
 import java.util.List;
 
@@ -35,9 +35,8 @@ public class UsuarioClienteRestTest extends AbstractTest {
 		Assert.assertNotNull(cliente);
 
 		target = client.target(URL_BASE + "/usuario/cliente/save");
-		response = target.request().accept(MediaType.APPLICATION_JSON)
-				.post(Entity.entity(new UsuarioCliente("Flavia Ferreira", "123456", cliente),
-						MediaType.APPLICATION_JSON));
+		response = target.request().accept(MediaType.APPLICATION_JSON).post(Entity.entity(
+				new UsuarioCliente("Flavia Ferreira", "flavia", "123456", cliente), MediaType.APPLICATION_JSON));
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
 		UsuarioCliente usuarioCliente = response.readEntity(UsuarioCliente.class);
 		Assert.assertNotNull(usuarioCliente);
@@ -61,9 +60,8 @@ public class UsuarioClienteRestTest extends AbstractTest {
 		Assert.assertNotNull(cliente);
 
 		target = client.target(URL_BASE + "/usuario/cliente/update/100001");
-		response = target.request()
-				.put(Entity.entity(new UsuarioCliente("Flavia Ferreira","123456", cliente),
-						MediaType.APPLICATION_JSON));
+		response = target.request().put(Entity.entity(
+				new UsuarioCliente("Flavia Ferreira", "flavia", "123456", cliente), MediaType.APPLICATION_JSON));
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
 		UsuarioCliente usuarioClienteResult = response.readEntity(UsuarioCliente.class);
 		Assert.assertNotNull(usuarioClienteResult);

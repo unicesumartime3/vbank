@@ -5,6 +5,6 @@
 	<cliente id="100001" nome="Christian Marchiori da Silva" cpf="09005548625" vl_renda="8006.00" id_conta="100001" email="christian@gmail.com"/>
 	<cliente id="100002" nome="Rafael Suzin" cpf="09006848956" vl_renda="8006.00" id_conta="100001" email="rafael@gmail.com"/>
 
-	<usuario id="100001" nome="Christian Marchiori" senha="123456" cliente_id="100001" tp_usuario="cliente"/>
-	<usuario id="100002" nome="Rafael Suzin" senha="123456" cliente_id="100002" tp_usuario="cliente"/>
+	<usuario id="100001" nome="Christian Marchiori" senha="123456" cliente_id="100001" tp_usuario="cliente" login="cmachiori"/>
+	<usuario id="100002" nome="Rafael Suzin" senha="123456" cliente_id="100002" tp_usuario="cliente" login="rafael"/>
 </dataset>

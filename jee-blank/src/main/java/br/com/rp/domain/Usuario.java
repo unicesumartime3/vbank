@@ -41,6 +41,12 @@ public abstract class Usuario extends BaseEntity implements Serializable {
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
 
+	/*
+	 * Login do funcionário no sistema.
+	 */
+	@Column(name = "login", length = 30, nullable = true)
+	private String login;
+	
 	@Size(min = 6, max = 8)
 	@Column(name = "senha", length = 8, nullable = false)
 	private String senha;
@@ -57,10 +63,11 @@ public abstract class Usuario extends BaseEntity implements Serializable {
 
 	}
 	
-	public Usuario(String nome, String senha) {
+	public Usuario(String nome, String login, String senha) {
 		super();
 		this.nome = nome;
 		this.senha = senha;
+		this.login = login;
 	}
 
 
@@ -80,4 +87,13 @@ public abstract class Usuario extends BaseEntity implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	
 }

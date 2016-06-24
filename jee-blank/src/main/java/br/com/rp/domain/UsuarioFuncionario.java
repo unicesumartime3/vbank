@@ -1,6 +1,5 @@
 package br.com.rp.domain;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,12 +31,6 @@ import javax.persistence.ManyToOne;
 public class UsuarioFuncionario extends Usuario {
 
 	/*
-	 * Login do funcionário no sistema.
-	 */
-	@Column(name = "login", length = 30, nullable = true)
-	private String login;
-
-	/*
 	 * Funcionário ao qual este usuário pertence.
 	 */
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -49,17 +42,8 @@ public class UsuarioFuncionario extends Usuario {
 	}
 
 	public UsuarioFuncionario(String nome, String login, String senha, Funcionario funcionario) {
-		super(nome, senha);
-		this.login = login;
+		super(nome, login, senha);
 		this.funcionario = funcionario;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public Funcionario getFuncionario() {

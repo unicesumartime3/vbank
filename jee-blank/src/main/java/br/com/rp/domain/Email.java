@@ -45,7 +45,7 @@ public class Email extends BaseEntity implements Serializable{
 	private SituacaoEmail situacao;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "proposta_id", referencedColumnName="id", nullable = false)
+	@JoinColumn(name = "proposta_id", referencedColumnName="id", nullable = true)
 	private Proposta proposta;
 	
 	public Email() {

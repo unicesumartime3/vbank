@@ -85,4 +85,20 @@ public class PropostaRest {
 	public List<Proposta> getAll() {
 		return propostaService.getAll();
 	}
+
+	@PUT
+	@Path("/rejeitarProposta/{idProposta}/{mensagemRejeicao}/{idUsuarioAnalise}")
+	public Proposta rejeitarProposta(@PathParam("idProposta") Long idProposta,
+			@PathParam("mensagemRejeicao") String mensagemRejeicao,
+			@PathParam("idUsuarioAnalise") Long idUsuarioAnalise) {
+		return propostaService.rejeitarProposta(idProposta, mensagemRejeicao, idUsuarioAnalise);
+	}
+
+	@PUT
+	@Path("/aprovarProposta/{idProposta}/{idUsuarioAnalise}")
+	public Proposta aprovarProposta(@PathParam("idProposta") Long idProposta,
+			@PathParam("idUsuarioAnalise") Long idUsuarioAnalise) {
+		return propostaService.aprovarProposta(idProposta, idUsuarioAnalise);
+	}
+
 }
