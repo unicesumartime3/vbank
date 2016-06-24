@@ -65,7 +65,7 @@ public class EmailRestTest extends AbstractTest {
 		Response response = target.request().get();
 		Assert.assertEquals(Integer.valueOf(200), Integer.valueOf(response.getStatus()));
 		Email emailResponse = response.readEntity(Email.class);
-		Assert.assertEquals("email@gmail.com", emailResponse.getRemetente());
+		Assert.assertEquals("javaeetime3envemail@gmail.com", emailResponse.getRemetente());
 
 		Email email = new Email();
 		email.setAssunto("Email para cliente");
