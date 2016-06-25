@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import br.com.rp.domain.Parametro;
 import br.com.rp.repository.ParametroRepository;
@@ -27,6 +29,9 @@ import br.com.rp.repository.ParametroRepository;
 @Stateless
 public class ParametroService {
 
+	@PersistenceContext(unitName = "vbankpu")
+	private EntityManager em;
+	
 	@EJB
 	private ParametroRepository parametroRepository;
 
@@ -38,6 +43,10 @@ public class ParametroService {
 		return parametroRepository.save(parametro);
 	}
 
+	public Parametro findParametro() {
+		return em.createQuery("from " + Parametro.class.getSimpleName(), Parametro.class).getSingleResult();
+	}
+	
 	public Parametro findById(Long id) {
 		return parametroRepository.findById(id);
 	}

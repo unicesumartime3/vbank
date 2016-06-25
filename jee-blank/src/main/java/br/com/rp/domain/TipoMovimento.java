@@ -16,5 +16,5 @@ package br.com.rp.domain;
  *
  */
 public enum TipoMovimento {
-	TRANSFERENCIA, PAGAMENTO, DEPOSITO;
+	SAIDA, ENTRADA;
 }

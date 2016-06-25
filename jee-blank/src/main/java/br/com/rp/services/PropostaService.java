@@ -133,7 +133,7 @@ public class PropostaService {
 						+ cliente.getNome() + "/alterarSenha \n\n" + "Atenciosamente,\nEquipe Vbank");
 				email.setDestinatario(cliente.getEmail());
 				email.setRemetente(usuarioFuncionarioAnalise.getFuncionario().getEmail());
-				email.setSituacao(SituacaoEmail.AGUARDANDO_ENVIO);
+				email.setSituacao(SituacaoEmail.ENVIADO);
 				email.setDhEnvio(Calendar.getInstance().getTime());
 				email.setProposta(proposta);
 				email.setCliente(cliente);
@@ -169,7 +169,7 @@ public class PropostaService {
 						+ "Aguarde 30 dias para realizar uma nova proposta.\n\nAtenciosamente, \nEquipe VBank");
 				email.setDestinatario(proposta.getEmail());
 				email.setRemetente(usuarioFuncionario.getFuncionario().getEmail());
-				email.setSituacao(SituacaoEmail.AGUARDANDO_ENVIO);
+				email.setSituacao(SituacaoEmail.ENVIADO);
 				email.setDhEnvio(Calendar.getInstance().getTime());
 				email.setProposta(proposta);
 				emailService.save(email);

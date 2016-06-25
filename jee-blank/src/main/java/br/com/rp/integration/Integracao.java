@@ -20,7 +20,10 @@ import br.com.rp.domain.Agendamento;
 import br.com.rp.domain.Banco;
 import br.com.rp.domain.BaseEntity;
 import br.com.rp.domain.Cliente;
+import br.com.rp.domain.Movimento;
 import br.com.rp.domain.TipoConta;
+import br.com.rp.domain.TipoMovimento;
+import br.com.rp.domain.TipoTransacao;
 
 /**
  * 
@@ -90,7 +93,11 @@ public class Integracao extends BaseEntity implements Serializable {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tp_integracao", length = 20, nullable = true)
-	private TipoIntegracao tipoIntegracao;
+	private TipoMovimento tipoIntegracao;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tp_transacao", length = 20, nullable = true)
+	private TipoTransacao tipoTransacao;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tp_situacao_bacen", length = 20, nullable = true)
@@ -104,6 +111,27 @@ public class Integracao extends BaseEntity implements Serializable {
 
 	}
 
+	public Integracao addMovimento(Movimento  movimento){
+		Integracao integracao = new Integracao();
+		integracao.setClienteRemetente(movimento.getClienteRemetente());
+		integracao.setCodigoBarra(movimento.getCodigoBarra());
+		integracao.setAgendamento(movimento.getAgendamento());
+		integracao.setVlIntegracao(movimento.getVlMovimento());
+		integracao.setTipoContaDebito(movimento.getTipoContaDebito());
+		integracao.setDtIntegracao(movimento.getDtMovimento());
+		integracao.setNrContaFavorecido(movimento.getNrContaFavorecido());
+		integracao.setEmailFavorecido(movimento.getEmailFavorecido());
+		integracao.setTipoContaFavorecido(movimento.getTipoContaFavorecido());
+		integracao.setFotoChequeFrente(movimento.getFotoChequeFrente());
+		integracao.setFotoChequeVerso(movimento.getFotoChequeVerso());
+		integracao.setBancoFavorecido(movimento.getBancoFavorecido());
+		integracao.setTipoIntegracao(movimento.getTipoMovimento());
+		integracao.setTipoTransacao(movimento.getTipoTransacao());
+		integracao.setSituacaoIntegracaoBancoCentral(SituacaoIntegracaoBancoCentral.NAO_INTEGRADO);
+		integracao.setSituacaoIntegracaoEUA(SituacaoIntegracaoEUA.NAO_INTEGRADO);
+		return integracao;
+	}
+	
 	public Cliente getClienteRemetente() {
 		return clienteRemetente;
 	}
@@ -142,6 +170,18 @@ public class Integracao extends BaseEntity implements Serializable {
 
 	public void setTipoContaDebito(TipoConta tipoContaDebito) {
 		this.tipoContaDebito = tipoContaDebito;
+	}
+
+	public TipoTransacao getTipoTransacao() {
+		return tipoTransacao;
+	}
+
+	public void setTipoTransacao(TipoTransacao tipoTransacao) {
+		this.tipoTransacao = tipoTransacao;
+	}
+
+	public void setTipoIntegracao(TipoMovimento tipoIntegracao) {
+		this.tipoIntegracao = tipoIntegracao;
 	}
 
 	public Date getDtIntegracao() {
@@ -208,20 +248,16 @@ public class Integracao extends BaseEntity implements Serializable {
 		this.bancoFavorecido = bancoFavorecido;
 	}
 
-	public TipoIntegracao getTipoIntegracao() {
-		return tipoIntegracao;
-	}
-
-	public void setTipoIntegracao(TipoIntegracao tipoIntegracao) {
-		this.tipoIntegracao = tipoIntegracao;
-	}
-
 	public SituacaoIntegracaoBancoCentral getSituacaoIntegracaoBancoCentral() {
 		return situacaoIntegracaoBancoCentral;
 	}
 
 	public void setSituacaoIntegracaoBancoCentral(SituacaoIntegracaoBancoCentral situacaoIntegracaoBancoCentral) {
 		this.situacaoIntegracaoBancoCentral = situacaoIntegracaoBancoCentral;
+	}
+
+	public TipoMovimento getTipoIntegracao() {
+		return tipoIntegracao;
 	}
 
 	public SituacaoIntegracaoEUA getSituacaoIntegracaoEUA() {

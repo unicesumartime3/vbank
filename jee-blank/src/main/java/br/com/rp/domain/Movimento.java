@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
  * @email flaviahferreirah@gmail.com
  *
  * @author Júlio Serra
- * @email julioserraaraujo@gmail.com 
+ * @email julioserraaraujo@gmail.com
  * 
  * @author Rafael Suzin
  * @email rafaelsuzin1@gmail.com
@@ -34,25 +34,25 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "movimento")
 public class Movimento extends BaseEntity implements Serializable {
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = true)
 	private Cliente clienteRemetente;
-	
+
 	@Column(name = "codigo_barra", length = 100, nullable = true)
 	private String codigoBarra;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "agendamento_id", referencedColumnName="id", nullable = true)
+	@JoinColumn(name = "agendamento_id", referencedColumnName = "id", nullable = true)
 	private Agendamento agendamento;
-	
+
 	@Column(name = "vl_movimento", precision = 14, scale = 2, nullable = true)
 	private BigDecimal vlMovimento;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tp_conta_debito", length = 15, nullable = true)
 	private TipoConta tipoContaDebito;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_movimento", nullable = true)
 	private Date dtMovimento;
@@ -77,17 +77,38 @@ public class Movimento extends BaseEntity implements Serializable {
 	@Lob
 	@Column(name = "foto_cheque_verso", nullable = true)
 	private byte[] fotoChequeVerso;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "banco_id", referencedColumnName = "id", nullable = true)
 	private Banco bancoFavorecido;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tp_movimento", length = 20, nullable = true)
 	private TipoMovimento tipoMovimento;
-	
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tp_transacao", length = 15, nullable = false)
+	private TipoTransacao tipoTransacao;
+
 	public Movimento() {
 
+	}
+
+	public Movimento addTransferencia(Transferencia transferencia) {
+		Movimento movimento = new Movimento();
+		movimento.setClienteRemetente(transferencia.getClienteRemetente());
+		movimento.setDtMovimento(transferencia.getDtTransferencia());
+		movimento.setAgendamento(transferencia.getAgendamento());
+		movimento.setVlMovimento(transferencia.getVlTranferencia());
+		movimento.setNrContaFavorecido(transferencia.getNrContaFavorecido());
+		movimento.setAgenciaFavorecido(transferencia.getAgenciaFavorecido());
+		movimento.setEmailFavorecido(transferencia.getEmailFavorecido());
+		movimento.setTipoContaFavorecido(transferencia.getTipoContaFavorecido());
+		movimento.setTipoContaDebito(transferencia.getTipoContaDebito());
+		movimento.setTipoMovimento(TipoMovimento.SAIDA);
+		movimento.setTipoTransacao(TipoTransacao.TRANSFERENCIA);
+		movimento.setBancoFavorecido(transferencia.getBancoFavorecido());
+		return movimento;
 	}
 
 	public Cliente getClienteRemetente() {
@@ -201,6 +222,12 @@ public class Movimento extends BaseEntity implements Serializable {
 	public void setTipoMovimento(TipoMovimento tipoMovimento) {
 		this.tipoMovimento = tipoMovimento;
 	}
-	
-	
+
+	public TipoTransacao getTipoTransacao() {
+		return tipoTransacao;
+	}
+
+	public void setTipoTransacao(TipoTransacao tipoTransacao) {
+		this.tipoTransacao = tipoTransacao;
+	}
 }
