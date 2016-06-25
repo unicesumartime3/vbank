@@ -21,7 +21,6 @@ import br.com.rp.domain.Banco;
 import br.com.rp.domain.BaseEntity;
 import br.com.rp.domain.Cliente;
 import br.com.rp.domain.TipoConta;
-import br.com.rp.domain.TipoMovimento;
 
 /**
  * 

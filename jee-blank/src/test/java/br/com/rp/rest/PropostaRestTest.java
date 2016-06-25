@@ -19,12 +19,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.rp.AbstractTest;
-import br.com.rp.domain.Cargo;
 import br.com.rp.domain.Email;
-import br.com.rp.domain.Funcionario;
 import br.com.rp.domain.Proposta;
 import br.com.rp.domain.SituacaoProposta;
-import br.com.rp.domain.UsuarioFuncionario;
 
 @Cleanup(strategy = CleanupStrategy.USED_TABLES_ONLY)
 public class PropostaRestTest extends AbstractTest {

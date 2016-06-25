@@ -32,6 +32,11 @@ public class Banco extends BaseEntity implements Serializable {
 
 	}
 
+	public Banco(String descricao) {
+		super();
+		this.descricao = descricao;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
