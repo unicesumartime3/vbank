@@ -1,4 +1,4 @@
-package br.com.rp.domain;
+package br.com.rp.integration;
 
 /**
  * 
@@ -15,6 +15,6 @@ package br.com.rp.domain;
  * @email rafaelsuzin1@gmail.com
  *
  */
-public enum SituacaoIntegracaoEUA {
-	NAO_INTEGRADO, INTEGRADO;
+public enum TipoIntegracao {
+	TRANSFERENCIA, PAGAMENTO, DEPOSITO;
 }

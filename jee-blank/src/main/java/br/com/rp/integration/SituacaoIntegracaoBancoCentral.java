@@ -1,4 +1,4 @@
-package br.com.rp.domain;
+package br.com.rp.integration;
 
 /**
  * 

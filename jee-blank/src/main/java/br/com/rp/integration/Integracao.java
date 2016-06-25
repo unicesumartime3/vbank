@@ -1,4 +1,4 @@
-package br.com.rp.domain;
+package br.com.rp.integration;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -15,6 +15,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import br.com.rp.domain.Agendamento;
+import br.com.rp.domain.Banco;
+import br.com.rp.domain.BaseEntity;
+import br.com.rp.domain.Cliente;
+import br.com.rp.domain.TipoConta;
+import br.com.rp.domain.TipoMovimento;
 
 /**
  * 
@@ -46,16 +53,16 @@ public class Integracao extends BaseEntity implements Serializable {
 	@JoinColumn(name = "agendamento_id", referencedColumnName = "id", nullable = true)
 	private Agendamento agendamento;
 
-	@Column(name = "vl_movimento", precision = 14, scale = 2, nullable = true)
-	private BigDecimal vlMovimento;
+	@Column(name = "vl_integracao", precision = 14, scale = 2, nullable = true)
+	private BigDecimal vlIntegracao;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tp_conta_debito", length = 15, nullable = true)
 	private TipoConta tipoContaDebito;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dt_movimento", nullable = true)
-	private Date dtMovimento;
+	@Column(name = "dt_integracao", nullable = true)
+	private Date dtIntegracao;
 
 	@Column(name = "nr_conta_favorecido", length = 20, nullable = true)
 	private String nrContaFavorecido;
@@ -83,8 +90,8 @@ public class Integracao extends BaseEntity implements Serializable {
 	private Banco bancoFavorecido;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "tp_movimento", length = 20, nullable = true)
-	private TipoMovimento tipoMovimento;
+	@Column(name = "tp_integracao", length = 20, nullable = true)
+	private TipoIntegracao tipoIntegracao;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tp_situacao_bacen", length = 20, nullable = true)
@@ -122,12 +129,12 @@ public class Integracao extends BaseEntity implements Serializable {
 		this.agendamento = agendamento;
 	}
 
-	public BigDecimal getVlMovimento() {
-		return vlMovimento;
+	public BigDecimal getVlIntegracao() {
+		return vlIntegracao;
 	}
 
-	public void setVlMovimento(BigDecimal vlMovimento) {
-		this.vlMovimento = vlMovimento;
+	public void setVlIntegracao(BigDecimal vlIntegracao) {
+		this.vlIntegracao = vlIntegracao;
 	}
 
 	public TipoConta getTipoContaDebito() {
@@ -138,12 +145,12 @@ public class Integracao extends BaseEntity implements Serializable {
 		this.tipoContaDebito = tipoContaDebito;
 	}
 
-	public Date getDtMovimento() {
-		return dtMovimento;
+	public Date getDtIntegracao() {
+		return dtIntegracao;
 	}
 
-	public void setDtMovimento(Date dtMovimento) {
-		this.dtMovimento = dtMovimento;
+	public void setDtIntegracao(Date dtIntegracao) {
+		this.dtIntegracao = dtIntegracao;
 	}
 
 	public String getNrContaFavorecido() {
@@ -202,12 +209,12 @@ public class Integracao extends BaseEntity implements Serializable {
 		this.bancoFavorecido = bancoFavorecido;
 	}
 
-	public TipoMovimento getTipoMovimento() {
-		return tipoMovimento;
+	public TipoIntegracao getTipoIntegracao() {
+		return tipoIntegracao;
 	}
 
-	public void setTipoMovimento(TipoMovimento tipoMovimento) {
-		this.tipoMovimento = tipoMovimento;
+	public void setTipoIntegracao(TipoIntegracao tipoIntegracao) {
+		this.tipoIntegracao = tipoIntegracao;
 	}
 
 	public SituacaoIntegracaoBancoCentral getSituacaoIntegracaoBancoCentral() {
@@ -225,4 +232,5 @@ public class Integracao extends BaseEntity implements Serializable {
 	public void setSituacaoIntegracaoEUA(SituacaoIntegracaoEUA situacaoIntegracaoEUA) {
 		this.situacaoIntegracaoEUA = situacaoIntegracaoEUA;
 	}
+
 }
