@@ -105,9 +105,41 @@ public class Movimento extends BaseEntity implements Serializable {
 		movimento.setEmailFavorecido(transferencia.getEmailFavorecido());
 		movimento.setTipoContaFavorecido(transferencia.getTipoContaFavorecido());
 		movimento.setTipoContaDebito(transferencia.getTipoContaDebito());
+		movimento.setBancoFavorecido(transferencia.getBancoFavorecido());
 		movimento.setTipoMovimento(TipoMovimento.SAIDA);
 		movimento.setTipoTransacao(TipoTransacao.TRANSFERENCIA);
-		movimento.setBancoFavorecido(transferencia.getBancoFavorecido());
+		return movimento;
+	}
+
+	public Movimento addPagamento(Pagamento pagamento) {
+		Movimento movimento = new Movimento();
+		movimento.setClienteRemetente(pagamento.getClienteRemetente());
+		movimento.setCodigoBarra(pagamento.getCodigoBarra());
+		movimento.setDtMovimento(pagamento.getDtPagamento());
+		movimento.setAgendamento(pagamento.getAgendamento());
+		movimento.setVlMovimento(pagamento.getVlPagamento());
+		movimento.setTipoContaDebito(pagamento.getTipoContaDebito());
+		movimento.setTipoMovimento(TipoMovimento.SAIDA);
+		movimento.setTipoTransacao(TipoTransacao.PAGAMENTO);
+		return movimento;
+	}
+
+	public Movimento addDeposito(Deposito deposito) {
+		Movimento movimento = new Movimento();
+		movimento.setClienteRemetente(deposito.getClienteRemetente());
+		movimento.setDtMovimento(deposito.getDtDeposito());
+		movimento.setAgendamento(deposito.getAgendamento());
+		movimento.setVlMovimento(deposito.getVlDeposito());
+		movimento.setAgenciaFavorecido(deposito.getAgenciaFavorecido());
+		movimento.setNrContaFavorecido(deposito.getNrContaFavorecido());
+		movimento.setEmailFavorecido(deposito.getEmailFavorecido());
+		movimento.setTipoContaFavorecido(deposito.getTipoContaFavorecido());
+		movimento.setTipoContaDebito(deposito.getTipoContaDebito());
+		movimento.setFotoChequeFrente(deposito.getFotoChequeFrente());
+		movimento.setFotoChequeVerso(deposito.getFotoChequeVerso());
+		movimento.setBancoFavorecido(deposito.getBancoFavorecido());
+		movimento.setTipoMovimento(TipoMovimento.SAIDA);
+		movimento.setTipoTransacao(TipoTransacao.DEPOSITO);
 		return movimento;
 	}
 
