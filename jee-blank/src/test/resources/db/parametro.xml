@@ -1,0 +1,4 @@
+<dataset>
+	<parametro id="100001" intervalo_integracao_bacen="5" hr_integracao_eua="22:30:00" hr_inicio_transacao="08:00:00" hr_fim_transacao="22:10:00"/>
+	<parametro id="100002" intervalo_integracao_bacen="4" hr_integracao_eua="22:37:00" hr_inicio_transacao="09:00:00" hr_fim_transacao="21:10:00"/>
+</dataset>

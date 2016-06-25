@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import br.com.rp.AbstractTest;
 import br.com.rp.domain.Conta;
-import br.com.rp.repository.ContaRepository;
 
 public class ContaRepositoryTest extends AbstractTest {
 	

@@ -13,9 +13,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.rp.domain.Banco;
 import br.com.rp.domain.Parametro;
-import br.com.rp.services.BancoService;
 import br.com.rp.services.ParametroService;
 
 /**
