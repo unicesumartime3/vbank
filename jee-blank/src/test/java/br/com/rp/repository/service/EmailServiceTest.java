@@ -1,5 +1,7 @@
 package br.com.rp.repository.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.ejb.EJB;
@@ -74,5 +76,16 @@ public class EmailServiceTest extends AbstractTest {
 	@UsingDataSet("db/email.xml")
 	public void deveRetornarEmailPorProposta() {
 		Assert.assertEquals(new Long(100002), emailService.findByProposta(100001L).getId());
+	}
+	
+	@Test
+	public void deveEnviarEmailComSucesso() throws ParseException{
+		Email email = new Email();
+		email.setAssunto("Testando envio de email");
+		email.setDescricao("Enviando email.\n\nObrigado por realizar este teste.\n\nAteciosamente,\nEquipe Vbank");
+		email.setDestinatario("unicesumartime3@gmail.com");
+		email.setDhEnvio(new SimpleDateFormat("yyyy-MM-dd").parse("2016-06-25"));
+		email.setSituacao(SituacaoEmail.ENVIADO);
+		emailService.enviarEmail(email);
 	}
 }

@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 @Table(name = "email")
 public class Email extends BaseEntity implements Serializable{
 
-	@Column(name = "remetente", length = 50, nullable = false)
+	@Column(name = "remetente", length = 50, nullable = true)
 	private String remetente;
 	
 	@Column(name = "destinatario", length = 50, nullable = false)
