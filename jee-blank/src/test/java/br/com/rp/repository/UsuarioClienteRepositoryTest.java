@@ -28,7 +28,7 @@ public class UsuarioClienteRepositoryTest extends AbstractTest {
 	private ContaRepository contaRepository;
 
 	@Test
-	public void deveInserirCargoComSucesso() {
+	public void deveInserirUsuarioClienteComSucesso() {
 		Conta conta = new Conta();
 		conta.setIsContaCorrente(true);
 		conta.setIsContaPoupanca(false);

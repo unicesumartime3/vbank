@@ -30,7 +30,7 @@ public class UsuarioClienteServiceTest extends AbstractTest {
 	private ContaService contaService;
 
 	@Test
-	public void deveInserirCargoComSucesso() {
+	public void deveInserirUsuarioClienteComSucesso() {
 		Conta conta = new Conta();
 		conta.setIsContaCorrente(true);
 		conta.setIsContaPoupanca(false);

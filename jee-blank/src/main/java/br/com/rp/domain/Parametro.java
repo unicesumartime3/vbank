@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "parametros")
-public class Parametros extends BaseEntity implements Serializable {
+public class Parametro extends BaseEntity implements Serializable {
 	
 	@Column(name = "intervalo_integracao_bacen", nullable = false)
 	private Long intervaloIntegracaoBancoCentral;
@@ -43,7 +43,7 @@ public class Parametros extends BaseEntity implements Serializable {
 	@Column(name = "hr_fim_transacao", nullable = false)
 	private Date horaFimTransacoes;
 	
-	public Parametros() {
+	public Parametro() {
 
 	}
 	

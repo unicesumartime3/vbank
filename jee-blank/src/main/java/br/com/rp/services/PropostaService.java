@@ -129,7 +129,7 @@ public class PropostaService {
 				email.setDescricao("Prezada(a) Sr(a) " + proposta.getNome() + ".\n\n"
 						+ "Informamos que o sua proposta de abertura de conta foi aprovada.\n\n"
 						+ "O número da sua conta e login é: " + cliente.getConta().getNrConta()
-						+ "\n\nPor favor altere sua senha acessado o seguinte endereço: \n\n" + "http://vbank.com.br/"
+						+ "\n\nPor favor altere sua senha acessando o seguinte endereço: \n\n" + "http://vbank.com.br/"
 						+ cliente.getNome() + "/alterarSenha \n\n" + "Atenciosamente,\nEquipe Vbank");
 				email.setDestinatario(cliente.getEmail());
 				email.setRemetente(usuarioFuncionarioAnalise.getFuncionario().getEmail());

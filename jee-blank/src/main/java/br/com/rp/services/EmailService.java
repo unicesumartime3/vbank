@@ -60,13 +60,13 @@ public class EmailService {
 		
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(email.getRemetente(), "javaeetime3envioemail123");
+				return new PasswordAuthentication("javaeetime3envemail@gmail.com", "javaeetime3envioemail123");
 			}
 		});
 		session.setDebug(true);
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(email.getRemetente()));
+			message.setFrom(new InternetAddress("javaeetime3envemail@gmail.com"));
 
 			Address[] toUser = InternetAddress 
 					.parse(email.getDestinatario());
