@@ -1,0 +1,13 @@
+<dataset>
+	<conta id="100001" nr_conta="4455668" is_contacorrente="true" is_contapoupanca="false" vl_saldo_conta_poupanca="1000.00" vl_saldo_conta_corrente="1500.00"/>
+	<conta id="100002" nr_conta="4455886" is_contacorrente="false" is_contapoupanca="true" vl_saldo_conta_poupanca="1000.00" vl_saldo_conta_corrente="1500.00"/>
+	
+	<cliente id="100001" nome="Julio Serra" cpf="08565895685" vl_renda="8500.00" id_conta="100001" email="julio@gmail.com"/>
+	<cliente id="100002" nome="Perola Araujo" cpf="20192073206" vl_renda="1500.00" id_conta="100002" email="perola@gmail.com"/>
+	
+	<banco id="100001" descricao="Banco do Brasil"/>
+	<banco id="100002" descricao="VBank"/>
+	
+	<transferencia id="100001" cliente_id="100001" dt_transferencia="2016-06-26" vl_tranferencia="500.00" nr_conta_favorecido="4455668" agencia_favorecido="4455668" email_favorecido="unicesumartime3@gmail.com" tp_conta_favorecido="CORRENTE" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE" banco_id="100001"/>
+	<transferencia id="100002" cliente_id="100002" dt_transferencia="2016-06-26" vl_tranferencia="1000.00" nr_conta_favorecido="4455775" email_favorecido="unicesumartime3@gmail.com" tp_conta_favorecido="CORRENTE" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE" banco_id="100002"/>
+</dataset>

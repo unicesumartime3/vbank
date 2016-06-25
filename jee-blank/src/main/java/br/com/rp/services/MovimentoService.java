@@ -31,6 +31,10 @@ public class MovimentoService {
 		return movimentoRepository.getAll();
 	}
 
+	public void remove(Long id) {
+		movimentoRepository.remove(id);
+	}
+
 	public Movimento save(Movimento movimento) {
 		contaService.save(atualizaSaldo(movimento));
 		Movimento mov = movimentoRepository.save(movimento);

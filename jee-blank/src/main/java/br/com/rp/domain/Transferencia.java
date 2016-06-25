@@ -56,7 +56,7 @@ public class Transferencia extends BaseEntity implements Serializable {
 	@Column(name = "agencia_favorecido", length = 10, nullable = true)
 	private String agenciaFavorecido;
 	
-	@Column(name = "email_favorecido", length = 10, nullable = true)
+	@Column(name = "email_favorecido", length = 50, nullable = true)
 	private String emailFavorecido;
 	
 	@Enumerated(EnumType.STRING)

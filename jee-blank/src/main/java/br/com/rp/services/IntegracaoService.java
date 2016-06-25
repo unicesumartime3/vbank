@@ -26,4 +26,8 @@ public class IntegracaoService {
 		return integracaoRepository.findById(id);
 	}
 
+	public void remove(Long id) {
+		integracaoRepository.remove(id);
+	}
+
 }
