@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 import br.com.rp.domain.Conta;
 import br.com.rp.domain.Movimento;
@@ -11,6 +12,7 @@ import br.com.rp.domain.TipoConta;
 import br.com.rp.integration.Integracao;
 import br.com.rp.repository.MovimentoRepository;
 
+@Stateless
 public class MovimentoService {
 
 	@EJB

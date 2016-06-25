@@ -12,17 +12,17 @@ import br.com.rp.repository.IntegracaoRepository;
 public class IntegracaoService {
 
 	@EJB
-private IntegracaoRepository integracaoRepository;
-	
+	private IntegracaoRepository integracaoRepository;
+
 	public List<Integracao> getAll() {
 		return integracaoRepository.getAll();
 	}
-	
-	public Integracao save(Integracao funcionario){
+
+	public Integracao save(Integracao funcionario) {
 		return integracaoRepository.save(funcionario);
 	}
-	
-	public Integracao findById(Long id){
+
+	public Integracao findById(Long id) {
 		return integracaoRepository.findById(id);
 	}
 

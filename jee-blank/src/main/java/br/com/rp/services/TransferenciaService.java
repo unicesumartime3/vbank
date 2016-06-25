@@ -1,6 +1,5 @@
 package br.com.rp.services;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.ejb.EJB;
