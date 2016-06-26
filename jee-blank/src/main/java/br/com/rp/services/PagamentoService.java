@@ -49,7 +49,7 @@ public class PagamentoService {
 		if (parametroService.isHorarioTransacaoValido(parametro, pagamento)) {
 			Pagamento pagament = pagamentoRepository.save(pagamento);
 			if (pagamento.getSituacaoPagamento() == SituacaoPagamento.FINALIZADO) {
-				movimentoService.save(new Movimento().addPagamento(pagament));
+				movimentoService.save(new Movimento().addMovimento(pagament));
 			}
 			return pagament;
 		} else {

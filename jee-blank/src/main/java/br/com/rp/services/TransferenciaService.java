@@ -37,7 +37,7 @@ public class TransferenciaService {
 		if (parametroService.isHorarioTransacaoValido(parametro, transferencia)) {
 			Transferencia transf = transferenciaRepository.save(transferencia);
 			if (transf.getSituacaoTransferencia() == SituacaoTransferencia.FINALIZADA) {
-				movimentoService.save(new Movimento().addTransferencia(transferencia));
+				movimentoService.save(new Movimento().addMovimento(transf));
 			}
 			return transf;
 		} else {

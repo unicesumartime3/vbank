@@ -93,8 +93,19 @@ public class Movimento extends BaseEntity implements Serializable {
 	public Movimento() {
 
 	}
-
-	public Movimento addTransferencia(Transferencia transferencia) {
+	public Movimento addMovimento(Object object) {
+		if (object instanceof Transferencia){
+			return addTransferencia((Transferencia) object);
+		}else if(object instanceof Pagamento) {
+			return addPagamento((Pagamento) object);
+		} else if (object instanceof Deposito){
+			return addDeposito((Deposito) object);
+		}else{
+			throw new RuntimeException("O objeto informado não é do tipo esperado.");
+		}
+	}
+	
+	private Movimento addTransferencia(Transferencia transferencia) {
 		Movimento movimento = new Movimento();
 		movimento.setClienteRemetente(transferencia.getClienteRemetente());
 		movimento.setDtMovimento(transferencia.getDtTransferencia());
@@ -111,7 +122,7 @@ public class Movimento extends BaseEntity implements Serializable {
 		return movimento;
 	}
 
-	public Movimento addPagamento(Pagamento pagamento) {
+	private Movimento addPagamento(Pagamento pagamento) {
 		Movimento movimento = new Movimento();
 		movimento.setClienteRemetente(pagamento.getClienteRemetente());
 		movimento.setCodigoBarra(pagamento.getCodigoBarra());
@@ -124,7 +135,7 @@ public class Movimento extends BaseEntity implements Serializable {
 		return movimento;
 	}
 
-	public Movimento addDeposito(Deposito deposito) {
+	private Movimento addDeposito(Deposito deposito) {
 		Movimento movimento = new Movimento();
 		movimento.setClienteRemetente(deposito.getClienteRemetente());
 		movimento.setDtMovimento(deposito.getDtDeposito());

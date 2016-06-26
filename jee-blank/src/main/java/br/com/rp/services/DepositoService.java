@@ -49,7 +49,7 @@ public class DepositoService {
 		if (parametroService.isHorarioTransacaoValido(parametro, deposito)) {
 			Deposito deposit = depositoRepository.save(deposito);
 			if (deposito.getSituacaoDeposito() == SituacaoDeposito.FINALIZADO) {
-				movimentoService.save(new Movimento().addDeposito(deposit));
+				movimentoService.save(new Movimento().addMovimento(deposit));
 			}
 			return deposit;
 		} else {
