@@ -8,6 +8,9 @@
 	<banco id="100001" descricao="Banco do Brasil"/>
 	<banco id="100002" descricao="VBank"/>
 	
-	<transferencia id="100001" cliente_id="100001" dt_transferencia="2016-06-26" vl_tranferencia="500.00" nr_conta_favorecido="4455668" agencia_favorecido="4455668" email_favorecido="unicesumartime3@gmail.com" tp_conta_favorecido="CORRENTE" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE" banco_id="100001"/>
-	<transferencia id="100002" cliente_id="100002" dt_transferencia="2016-06-26" vl_tranferencia="1000.00" nr_conta_favorecido="4455775" email_favorecido="unicesumartime3@gmail.com" tp_conta_favorecido="CORRENTE" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE" banco_id="100002"/>
+	<transferencia id="100001" cliente_id="100001" dt_transferencia="2016-06-26 20:00:00" vl_tranferencia="500.00" nr_conta_favorecido="4455668" agencia_favorecido="4455668" email_favorecido="unicesumartime3@gmail.com" tp_conta_favorecido="CORRENTE" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE" banco_id="100001"/>
+	<transferencia id="100002" cliente_id="100002" dt_transferencia="2016-06-26 20:00:00" vl_tranferencia="1000.00" nr_conta_favorecido="4455775" email_favorecido="unicesumartime3@gmail.com" tp_conta_favorecido="CORRENTE" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE" banco_id="100002"/>
+	
+	<parametro id="100001" intervalo_integracao_bacen="6" hr_integracao_eua="03:00:00" hr_inicio_transacao="08:00:00" hr_fim_transacao="22:00:00"/>	
+	
 </dataset>

@@ -2,6 +2,7 @@ package br.com.rp.repository.service;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBTransactionRolledbackException;
@@ -13,6 +14,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.rp.AbstractTest;
+import br.com.rp.domain.Parametro;
 import br.com.rp.domain.SituacaoTransferencia;
 import br.com.rp.domain.TipoConta;
 import br.com.rp.domain.TipoMovimento;
@@ -22,6 +24,7 @@ import br.com.rp.services.BancoService;
 import br.com.rp.services.ClienteService;
 import br.com.rp.services.IntegracaoService;
 import br.com.rp.services.MovimentoService;
+import br.com.rp.services.ParametroService;
 import br.com.rp.services.TransferenciaService;
 /**
  * 
@@ -66,7 +69,7 @@ public class TransferenciaServiceTest extends AbstractTest {
 	public void deveInserirTransferenciaComSucesso() {
 		Transferencia transferencia = new Transferencia();
 		transferencia.setClienteRemetente(clienteService.findById(100001L));
-		transferencia.setDtTransferencia(Calendar.getInstance().getTime());
+		transferencia.setDtTransferencia(new GregorianCalendar(2000, 0, 1, 15, 30, 00).getTime());
 		transferencia.setVlTranferencia(new BigDecimal(800.00));
 		transferencia.setNrContaFavorecido("546489");
 		transferencia.setAgenciaFavorecido("4545856");
@@ -91,7 +94,7 @@ public class TransferenciaServiceTest extends AbstractTest {
 	public void deveInserirTransferenciaMovimentoEIntegracaoComSucesso() {
 		Transferencia transferencia = new Transferencia();
 		transferencia.setClienteRemetente(clienteService.findById(100001L));
-		transferencia.setDtTransferencia(Calendar.getInstance().getTime());
+		transferencia.setDtTransferencia(new GregorianCalendar(2000, 0, 1, 15, 30, 00).getTime());
 		transferencia.setVlTranferencia(new BigDecimal(800.00));
 		transferencia.setNrContaFavorecido("546489");
 		transferencia.setAgenciaFavorecido("4545856");
@@ -175,4 +178,24 @@ public class TransferenciaServiceTest extends AbstractTest {
 		Assert.assertEquals("4585698", transferenciaService.findById(100001L).getNrContaFavorecido());
 		transferenciaService.remove(transferencia.getId());
 	}
+	
+	@Test(expected = EJBTransactionRolledbackException.class)
+	@UsingDataSet("db/transferencia.xml")
+	public void deveFalharAoInserirTransferenciaDevidoAoHorario() {
+	
+		Transferencia transferencia = new Transferencia();
+		transferencia.setClienteRemetente(clienteService.findById(100001L));
+		transferencia.setDtTransferencia(new GregorianCalendar(2000, 0, 1, 3, 30, 00).getTime());
+		transferencia.setVlTranferencia(new BigDecimal(800.00));
+		transferencia.setNrContaFavorecido("546489");
+		transferencia.setAgenciaFavorecido("4545856");
+		transferencia.setEmailFavorecido("unicesumartime3@gmail.com");
+		transferencia.setTipoContaFavorecido(TipoConta.CORRENTE);
+		transferencia.setTipoContaDebito(TipoConta.CORRENTE);
+		transferencia.setSituacaoTransferencia(SituacaoTransferencia.PENDENTE);
+		transferencia.setBancoFavorecido(bancoService.findById(100001L));
+
+		transferenciaService.save(transferencia);
+		Assert.assertNull(transferencia.getId());	
+	}	
 }
