@@ -52,12 +52,12 @@ public class MovimentoService {
 			if ((conta.getVlSaldoContaPoupanca().subtract(movimento.getVlMovimento())).compareTo(BigDecimal.ZERO) > 0)
 				conta.setVlSaldoContaPoupanca(conta.getVlSaldoContaPoupanca().subtract(movimento.getVlMovimento()));
 			else
-				throw new RuntimeException("O saldo é insuficiente para o movimento.");
+				throw new RuntimeException("O saldo é insuficiente para o movimento. Saldo:"+ conta.getVlSaldoContaPoupanca() + ", Valor Desconto: "+ movimento.getVlMovimento());
 		} else if (movimento.getTipoContaDebito() == TipoConta.CORRENTE) {
 			if ((conta.getVlSaldoContaCorrente().subtract(movimento.getVlMovimento())).compareTo(BigDecimal.ZERO) > 0)
 				conta.setVlSaldoContaCorrente(conta.getVlSaldoContaCorrente().subtract(movimento.getVlMovimento()));
 			else
-				throw new RuntimeException("O saldo é insuficiente para o movimento.");
+				throw new RuntimeException("O saldo é insuficiente para o movimento. Saldo:"+ conta.getVlSaldoContaCorrente() + ", Valor Desconto: "+ movimento.getVlMovimento());
 		}
 
 		return conta;
