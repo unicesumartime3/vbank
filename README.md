@@ -49,7 +49,7 @@ sido aceita a primeira proposta, não deve permitir enviar nehuma outra propost
 * Nao deve ser permitido que duas pessoas diferentes tenham o mesmo CPF 
 
 ###Informações importantes###
-- servidor de aplicação disponibilizado possui 24 núcleos, sendo que os investidores
+- Servidor de aplicação disponibilizado possui 24 núcleos, sendo que os investidores
 solicitam que seja usado todo o poder de processamento em paralelo deste servidor.
 - A interface gráfica será terceirizada para uma equipe que está na China e logo não faz
 parte do escopo deste projeto nesta etapa.
