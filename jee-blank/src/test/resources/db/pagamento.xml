@@ -1,0 +1,16 @@
+<dataset>
+	<conta id="100001" nr_conta="4455668" is_contacorrente="true" is_contapoupanca="false" vl_saldo_conta_poupanca="1000.00" vl_saldo_conta_corrente="1500.00"/>
+	<conta id="100002" nr_conta="4455886" is_contacorrente="false" is_contapoupanca="true" vl_saldo_conta_poupanca="1000.00" vl_saldo_conta_corrente="1500.00"/>
+	
+	<cliente id="100001" nome="Julio Serra" cpf="08565895685" vl_renda="8500.00" id_conta="100001" email="julio@gmail.com"/>
+	<cliente id="100002" nome="Perola Araujo" cpf="20192073206" vl_renda="1500.00" id_conta="100002" email="perola@gmail.com"/>
+	
+	<banco id="100001" descricao="Banco do Brasil"/>
+	<banco id="100002" descricao="VBank"/>
+	
+	<pagamento id="100001" cliente_id="100001" codigo_barra="45646465791564915460561450545915465165" dt_pagamento="2016-06-26 20:00:00" vl_pagamento="500.00" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE"/>
+	<pagamento id="100002" cliente_id="100002" codigo_barra="45646465791564915460561450545915465165" dt_pagamento="2016-06-26 20:00:00" vl_pagamento="1000.00" tp_conta_debito="CORRENTE" tp_situacao="PENDENTE"/>
+	
+	<parametro id="100001" intervalo_integracao_bacen="6" hr_integracao_eua="03:00:00" hr_inicio_transacao="08:00:00" hr_fim_transacao="22:00:00"/>	
+	
+</dataset>

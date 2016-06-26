@@ -60,7 +60,7 @@ public class TransferenciaServiceTest extends AbstractTest {
 
 	@EJB
 	private IntegracaoService integracaoService;
-	
+
 	@EJB
 	private AgendamentoService agendamentoService;
 
@@ -94,12 +94,12 @@ public class TransferenciaServiceTest extends AbstractTest {
 	}
 
 	/*
-	 * Este teste tem o objetivo de realizar teste no cadastro de uma transferência.
-	 * Caso uma transferência seja cadastrada e finalizada, é gerado um movimento,
-	 * feito isso é gerado então um a integração que será consiliada com o Banco central
-	 * e EUA.
+	 * Este teste tem o objetivo de realizar teste no cadastro de uma
+	 * transferência. Caso uma transferência seja cadastrada e finalizada, é
+	 * gerado um movimento, feito isso é gerado então um a integração que será
+	 * consiliada com o Banco central e EUA.
 	 */
-	 
+
 	@Test
 	@UsingDataSet("db/transferencia.xml")
 	public void deveInserirTransferenciaMovimentoEIntegracaoComSucesso() {
@@ -183,16 +183,16 @@ public class TransferenciaServiceTest extends AbstractTest {
 		transferenciaService.save(transferencia);
 		Assert.assertNull(transferencia.getId());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/transferencia.xml")
-	public void deveInserirTransferenciaAgendamentoMovimentoIntegracaoComSucesso(){
+	public void deveInserirTransferenciaAgendamentoMovimentoIntegracaoComSucesso() {
 		Agendamento agendamento = new Agendamento();
 		agendamento.setCliente(clienteService.findById(100001L));
 		agendamento.setDataAgendamento(new GregorianCalendar(2000, 0, 1, 15, 30, 00).getTime());
 		agendamentoService.save(agendamento);
 		Assert.assertNotNull(agendamento.getId());
-		
+
 		Transferencia transferencia = new Transferencia();
 		transferencia.setClienteRemetente(agendamento.getCliente());
 		transferencia.setAgendamento(agendamento);
@@ -205,7 +205,7 @@ public class TransferenciaServiceTest extends AbstractTest {
 		transferencia.setSituacaoTransferencia(SituacaoTransferencia.PENDENTE);
 		transferencia.setBancoFavorecido(bancoService.findById(100001L));
 		transferenciaService.save(transferencia);
-		
+
 		Assert.assertNotNull(transferencia.getId());
 		Assert.assertEquals(SituacaoTransferencia.PENDENTE, transferencia.getSituacaoTransferencia());
 		Assert.assertNotEquals(new BigDecimal(1000.00).setScale(2, BigDecimal.ROUND_HALF_UP),
@@ -214,11 +214,11 @@ public class TransferenciaServiceTest extends AbstractTest {
 				transferencia.getClienteRemetente().getConta().getVlSaldoContaCorrente());
 		Assert.assertEquals(0, movimentoService.getAll().size());
 		Assert.assertEquals(0, integracaoService.getAll().size());
-		
+
 		transferencia.setSituacaoTransferencia(SituacaoTransferencia.FINALIZADA);
 		transferenciaService.save(transferencia);
 		Assert.assertEquals(SituacaoTransferencia.FINALIZADA, transferencia.getSituacaoTransferencia());
-		
+
 		Assert.assertNotNull(transferencia.getId());
 		Assert.assertNotEquals(new BigDecimal(1000.00).setScale(2, BigDecimal.ROUND_HALF_UP),
 				transferencia.getClienteRemetente().getConta().getVlSaldoContaCorrente());
@@ -248,7 +248,7 @@ public class TransferenciaServiceTest extends AbstractTest {
 		transferenciaService.remove(transferencia.getId());
 		agendamentoService.remove(agendamento.getId());
 	}
-	
+
 	@Test
 	@UsingDataSet("db/transferencia.xml")
 	public void deveCompararAgenciaFavorecidoTransferencia() {
@@ -273,6 +273,4 @@ public class TransferenciaServiceTest extends AbstractTest {
 		Assert.assertEquals("4585698", transferenciaService.findById(100001L).getNrContaFavorecido());
 		transferenciaService.remove(transferencia.getId());
 	}
-	
-	
 }
