@@ -33,7 +33,7 @@ aceitação da proposta, uma nova conta deve ser criada e enviado ao proponent
 11. Eu, como gerente de operações, preciso garantir que todas as transações realizadas no Vbank, foram integradas ao sistema atual (disponibilizado pelo sistema nos EUA) e que também foram integradas ao Banco Central do Brasil. Para isto, preciso monitorar todas as transações e se necessário integra-las manualmente, disparando o processo de integração.
 
 
-###Requisitos não funcionáis###
+###Requisitos não funcionais###
 1. O sistema deve suportar inicialmente 100 acessos concorrentes. Em 3 meses, o sistema deverá suportar 5000 acessos concorrentes.
 2. O sistema deve fornecer níveis diferenciados de acesso a informações, ou seja, cada grupo de usuários somente pode ter acesso a informações pertinentes a sua área, ou seja, gerentes de contas, somente tem acesso a dados dos clientes, contas dos clientes, movimentações e propostas de cadastro. Gerente de operações somente podem acessar os serviços referentes a integração de sistemas e clientes, somente podem visualizar dados referentes a sua conta.
 3. Todas as transações devem ser auditadas(log), sejam elas realizadas com sucesso ou não.
