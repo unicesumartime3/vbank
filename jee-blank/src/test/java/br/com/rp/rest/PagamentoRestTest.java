@@ -19,7 +19,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.rp.AbstractTest;
-import br.com.rp.domain.Agendamento;
 import br.com.rp.domain.Cliente;
 import br.com.rp.domain.Movimento;
 import br.com.rp.domain.Pagamento;

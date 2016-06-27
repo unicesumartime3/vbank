@@ -47,7 +47,7 @@ public class ClienteRestTest extends AbstractTest {
 
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveAlterarFuncionarioComSucesso() throws ParseException {
+	public void deveAlterarClienteComSucesso() throws ParseException {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/cliente/findById/100001");
 		Response response = target.request().get();
@@ -68,7 +68,7 @@ public class ClienteRestTest extends AbstractTest {
 
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveRemoverFuncionarioComSucesso() {
+	public void deveRemoverClienteComSucesso() {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/cliente/remove/100001");
 		Response response = target.request().delete();
@@ -83,7 +83,7 @@ public class ClienteRestTest extends AbstractTest {
 
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveRetornarFuncionario() {
+	public void deveRetornarCliente() {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/cliente/findById/100001");
 		Response response = target.request().get();
@@ -94,7 +94,7 @@ public class ClienteRestTest extends AbstractTest {
 
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveCompararFuncionarioNome() {
+	public void deveCompararClienteNome() {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/cliente/findById/100001");
 		Response response = target.request().get();
@@ -105,7 +105,7 @@ public class ClienteRestTest extends AbstractTest {
 
 	@Test
 	@UsingDataSet("db/cliente.xml")
-	public void deveRetornaDoisFuncionarios() {
+	public void deveRetornaDoisCliente() {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(URL_BASE + "/cliente/getAll");
 		Response response = target.request().get();
