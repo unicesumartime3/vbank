@@ -137,7 +137,7 @@ public class PagamentoServiceTest extends AbstractTest {
 
 	@Test(expected = EJBTransactionRolledbackException.class)
 	@UsingDataSet("db/transferencia.xml")
-	public void deveFalharAoInserirTransferenciaDevidoAoHorario() {
+	public void deveFalharAoInserirPagamentoDevidoAoHorario() {
 
 		Pagamento pagamento = new Pagamento();
 		pagamento.setClienteRemetente(clienteService.findById(100001L));
